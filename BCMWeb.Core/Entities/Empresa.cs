@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.Design.Serialization;
-using System.Security.Principal;
-using System.Text;
 
 namespace BCMWeb.Core.Entities
 {

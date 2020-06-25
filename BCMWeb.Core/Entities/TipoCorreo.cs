@@ -1,7 +1,9 @@
+﻿
 
-
-namespace BCMWeb.Core.Entities {
-public class TipoCorreo{
-public long IdTipoCorreo { get; set; }
-} 
- }
+namespace BCMWeb.Core.Entities
+{
+    public class TipoCorreo
+    {
+        public long IdTipoCorreo { get; set; }
+    }
+}

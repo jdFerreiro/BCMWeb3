@@ -1,4 +1,4 @@
-namespace BCMWeb.Core.Entities
+﻿namespace BCMWeb.Core.Entities
 {
     public class BCPRestauracionMobiliario
     {
