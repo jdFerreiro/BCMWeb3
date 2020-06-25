@@ -8,7 +8,7 @@ namespace BCMWeb.Core.Entities
 {
     public class Empresa
     {
-        public long Id { get; set; }
+        public long IdEmpresa { get; set; }
         public string NombreFiscal { get; set; }
         public string NombreComercial { get; set; }
         public string RegistroFiscal { get; set; }

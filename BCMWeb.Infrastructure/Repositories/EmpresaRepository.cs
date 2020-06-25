@@ -77,7 +77,7 @@ namespace BCMWeb.Infrastructure.Repositories
                 return _result;
             }
         }
-        public async Task<IEnumerable<Empresa>> EmpresasByUsuario(long idUsuario)
+        public async Task<IEnumerable<Empresa>> GetEmpresasByUsuario(long idUsuario)
         {
             var sql = @"SELECT IdEmpresa, NombreFiscal, RegistroFiscal, NombreComercial, DireccionAdministrativa, IdEstado, 
                                FechaUltimoEstado, LogoURL, FechaInicioActividad, CrearProcesos, CrearUnidadOrganizativa, 
@@ -96,13 +96,22 @@ namespace BCMWeb.Infrastructure.Repositories
         public async Task<long> Update(Empresa entity)
         {
 
-            var sql = @"UPDATE tblUsuario SET ClaveUsuario = @Passw, Nombre = @Nombre, Email = @Email WHERE IdUsuario = @Id;";
+            var sql = @"UPDATE tblEmpresa 
+                        SET NombreFiscal  = @NombreFiscal, RegistroFiscal  = @RegistroFiscal, NombreComercial  = @NombreComercial, 
+                            DireccionAdministrativa  = @DireccionAdministrativa, IdEstado  = @IdEstado, FechaUltimoEstado  = @FechaUltimoEstado, 
+                            LogoURL  = @LogoURL, FechaInicioActividad  = @FechaInicioActividad, CrearProcesos  = @CrearProcesos, 
+                            CrearUnidadOrganizativa  = @CrearUnidadOrganizativa, CrearUnidadTrabajo  = @CrearUnidadTrabajo, 
+                            CrearAplicaciones  = @CrearAplicaciones, CrearDocumento  = @CrearDocumento, IdPais  = @IdPais, 
+                            IdPaisEstado  = @IdPaisEstado, IdPaisEstadoCiudad  = @IdPaisEstadoCiudad 
+                        WHERE IdEmpresa = @Id";
+
             using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
             {
                 connection.Open();
-                var _affectedRows = await connection.ExecuteAsync(sql, new { Id = entity.IdUsuario });
+                var _affectedRows = await connection.ExecuteAsync(sql, new { Id = entity.IdEmpresa });
                 return _affectedRows;
             }
         }
+
     }
 }

@@ -1,6 +1,6 @@
 ﻿using BCMWeb.Application.Interfaces;
 using BCMWeb.Core.Entities;
-using BCMWeb.Core.Utilities;
+using BCMWeb.Infrastructure.Utilities;
 using Dapper;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -14,6 +14,7 @@ namespace BCMWeb.Infrastructure.Repositories
     public class UsuarioRepository : IUsuarioRepository
     {
         private Encriptador _encriptar = new Encriptador();
+
         private readonly IConfiguration _configuration;
 
         public UsuarioRepository(IConfiguration configuration)
@@ -116,7 +117,12 @@ namespace BCMWeb.Infrastructure.Repositories
                             _valid = (int)_usuario.EstadoUsuario;
                             break;
                         case Core.Enums.UsuarioEstado.Inactivo:
-
+                            EmpresaRepository empresaRepository = new EmpresaRepository(_configuration);
+                            AuditoriaRepository auditoriaRepository = new AuditoriaRepository(_configuration);
+                            _usuario.Empresas = empresaRepository.GetEmpresasByUsuario(_usuario.IdUsuario).Result;
+                            sql = @"UPDATE tblUsuario SET EstadoUsuario = 2, FechaEstado = GETDATE() WHERE IdUsuario = @Id;";
+                            var _affectedRows = await connection.ExecuteAsync(sql, new { Id = _usuario.IdUsuario });
+                            if (_affectedRows > 0) _valid = (int)Core.Enums.UsuarioEstado.Activo;
                             break;
                     }
                 }
@@ -124,7 +130,6 @@ namespace BCMWeb.Infrastructure.Repositories
 
             return _valid;
         }
-
         public async Task<long> LogOut(long id)
         {
             var sql = @"UPDATE tblUsuario SET EstadoUsuario = 1, FechaEstado = GETDATE() WHERE IdUsuario = @Id;";
@@ -135,7 +140,6 @@ namespace BCMWeb.Infrastructure.Repositories
                 return _affectedRows;
             }
         }
-
         public async Task<long> Lock(long id)
         {
             var sql = @"UPDATE tblUsuario SET EstadoUsuario = 3, FechaEstado = GETDATE() WHERE IdUsuario = @Id;";

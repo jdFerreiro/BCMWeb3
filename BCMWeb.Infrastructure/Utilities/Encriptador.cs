@@ -4,7 +4,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace BCMWeb.Core.Utilities
+namespace BCMWeb.Infrastructure.Utilities
 {
     public class Encriptador
     {

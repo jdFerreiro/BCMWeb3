@@ -15,6 +15,7 @@ namespace BCMWeb.Infrastructure.Services
         {
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
             services.AddTransient<IEmpresaRepository, EmpresaRepository>();
+            services.AddTransient<IAuditoriaRepository, AuditoriaRepository>();
 
             return services;
         } 

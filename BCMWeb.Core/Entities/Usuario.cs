@@ -10,7 +10,7 @@ namespace BCMWeb.Core.Entities
         public string Nombre { get; set; }
         public string CodigoUsuario { get; set; }
         public string ClaveUsuario { get; set; }
-        public UsuarioEstado EstadoUsuario {  get; set; }
+        public UsuarioEstado EstadoUsuario { get; set; }
         public DateTime FechaEstado { get; set; }
         public DateTime FechaUltimaConexion { get; set; }
         public bool PrimeraVez { get; set; }

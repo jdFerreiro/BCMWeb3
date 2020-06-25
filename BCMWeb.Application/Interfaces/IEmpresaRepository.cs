@@ -6,6 +6,6 @@ namespace BCMWeb.Application.Interfaces
 {
     public interface IEmpresaRepository : IGenericRepository<Empresa>
     {
-        Task<IEnumerable<Empresa>> EmpresasByUsuario(long idUsuario);
+        Task<IEnumerable<Empresa>> GetEmpresasByUsuario(long idUsuario);
     }
 }
