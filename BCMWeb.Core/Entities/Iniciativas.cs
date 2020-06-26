@@ -18,9 +18,9 @@ namespace BCMWeb.Core.Entities
         public DateTime FechaCierreReal { get; set; }
         public decimal PresupuestoEstimado { get; set; }
         public decimal PresupuestoReal { get; set; }
-        public Int16 IdEstatusIniciativa { get; set; }
+        public short IdEstatusIniciativa { get; set; }
         public string Observacion { get; set; }
-        public Int16 IdPrioridad { get; set; }
+        public short IdPrioridad { get; set; }
         public decimal MontoAbonado { get; set; }
         public decimal MontoPendiente { get; set; }
         public decimal PorcentajeAvance { get; set; }

@@ -11,6 +11,6 @@ namespace BCMWeb.Core.Entities
         public string Propósito { get; set; }
         public DateTime FechaInicio { get; set; }
         public string Lugar { get; set; }
-        public Int16 IdEstatus { get; set; }
+        public short IdEstatus { get; set; }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace BCMWeb.Core.Entities
+﻿namespace BCMWeb.Core.Entities
 {
     public class BCPRespuestaAccion
     {
@@ -8,7 +6,7 @@ namespace BCMWeb.Core.Entities
         public long IdDocumentoBCP { get; set; }
         public long IdBCPRespuestaAccion { get; set; }
         public long IdPersona { get; set; }
-        public Int16 NivelEscala { get; set; }
+        public short NivelEscala { get; set; }
         public string NombreEscala { get; set; }
     }
 }

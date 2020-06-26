@@ -11,7 +11,7 @@ namespace BCMWeb.Core.Entities
         public DateTime FechaFinal { get; set; }
         public long IdEstado { get; set; }
         public bool Negocios { get; set; }
-        public Int16 IdTipoActualizacion { get; set; }
+        public short IdTipoActualizacion { get; set; }
         public long IdTipoFrecuencia { get; set; }
     }
 }

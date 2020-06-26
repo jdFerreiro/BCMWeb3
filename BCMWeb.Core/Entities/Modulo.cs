@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace BCMWeb.Core.Entities
+﻿namespace BCMWeb.Core.Entities
 {
     public class Modulo
     {
@@ -8,7 +6,7 @@ namespace BCMWeb.Core.Entities
         public long IdModulo { get; set; }
         public int IdCodigoModulo { get; set; }
         public long IdModuloPadre { get; set; }
-        public Int16 IdTipoElemento { get; set; }
+        public short IdTipoElemento { get; set; }
         public string Nombre { get; set; }
         public string Accion { get; set; }
         public string Controller { get; set; }

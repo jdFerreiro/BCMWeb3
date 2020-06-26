@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace BCMWeb.Core.Entities
+﻿namespace BCMWeb.Core.Entities
 {
     public class PMTResponsableUpdate
     {
@@ -8,6 +6,6 @@ namespace BCMWeb.Core.Entities
         public long IdModulo { get; set; }
         public long IdMensaje { get; set; }
         public long IdDocumento { get; set; }
-        public Int16 IdTipoNotificacion { get; set; }
+        public short IdTipoNotificacion { get; set; }
     }
 }

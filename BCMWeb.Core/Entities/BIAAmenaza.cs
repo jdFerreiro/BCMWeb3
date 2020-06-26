@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace BCMWeb.Core.Entities
+﻿namespace BCMWeb.Core.Entities
 {
     public class BIAAmenaza
     {
@@ -14,11 +12,11 @@ namespace BCMWeb.Core.Entities
         public string Evento { get; set; }
         public string TipoControlImplantado { get; set; }
         public string ControlesImplantar { get; set; }
-        public Int16 Probabilidad { get; set; }
-        public Int16 Impacto { get; set; }
-        public Int16 Control { get; set; }
-        public Int16 Severidad { get; set; }
+        public short Probabilidad { get; set; }
+        public short Impacto { get; set; }
+        public short Control { get; set; }
+        public short Severidad { get; set; }
         public string Fuente { get; set; }
-        public Int16 Estado { get; set; }
+        public short Estado { get; set; }
     }
 }

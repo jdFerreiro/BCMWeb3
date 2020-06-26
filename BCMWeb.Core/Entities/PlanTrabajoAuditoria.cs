@@ -9,7 +9,7 @@ namespace BCMWeb.Core.Entities
         public long IdActividad { get; set; }
         public long IdCambioEstado { get; set; }
         public DateTime FechaCambioEstado { get; set; }
-        public Int16 Estado { get; set; }
+        public short Estado { get; set; }
         public long IdUsuarioCambioEstado { get; set; }
     }
 }

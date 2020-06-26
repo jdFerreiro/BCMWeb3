@@ -6,7 +6,7 @@ namespace BCMWeb.Core.Entities
     {
         public long IdPMTProgramacion { get; set; }
         public long IdUsuario { get; set; }
-        public Int16 IdTipoNotificacion { get; set; }
+        public short IdTipoNotificacion { get; set; }
         public DateTime FechaUltimaNotificacion { get; set; }
     }
 }

@@ -1,9 +1,7 @@
-﻿using System;
-
-namespace BCMWeb.Core.Entities
+﻿namespace BCMWeb.Core.Entities
 {
     public class PBEPruebaEstatus
     {
-        public Int16 IdEstatus { get; set; }
+        public short IdEstatus { get; set; }
     }
 }

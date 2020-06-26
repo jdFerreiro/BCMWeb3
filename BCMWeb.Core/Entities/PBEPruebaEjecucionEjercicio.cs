@@ -12,7 +12,7 @@ namespace BCMWeb.Core.Entities
         public DateTime FechaInicio { get; set; }
         public int DuracionHoras { get; set; }
         public int DuracionMinutos { get; set; }
-        public Int16 IdEstatus { get; set; }
+        public short IdEstatus { get; set; }
         public long IdEjercicioPlanificacion { get; set; }
     }
 }

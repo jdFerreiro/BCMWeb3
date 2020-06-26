@@ -10,7 +10,7 @@ namespace BCMWeb.Core.Entities
         public string Recomendacion { get; set; }
         public string Responsable { get; set; }
         public DateTime FechaPropuestaEjecucion { get; set; }
-        public Int16 Ejecutada { get; set; }
+        public short Ejecutada { get; set; }
         public long IdActividadPadre { get; set; }
     }
 }
