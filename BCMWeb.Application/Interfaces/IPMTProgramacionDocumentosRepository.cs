@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface IPMTProgramacionDocumentosRepository : IGenericRepository<PMTProgramacionDocumentos>
+    public interface IPMTProgramacionDocumentosRepository : IGenericRepository<TblPmtprogramacionDocumentos>
     {
         Task<long> Delete(long idpmtprogramacion, long idempresa, long idmodulo, long iddocumento);
-        Task<PMTProgramacionDocumentos> Get(long idpmtprogramacion, long idempresa, long idmodulo, long iddocumento);
+        Task<TblPmtprogramacionDocumentos> Get(long idpmtprogramacion, long idempresa, long idmodulo, long iddocumento);
     }
 }

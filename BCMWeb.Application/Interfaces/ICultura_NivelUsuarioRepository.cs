@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface ICultura_NivelUsuarioRepository : IGenericRepository<Cultura_NivelUsuario>
+    public interface ICultura_NivelUsuarioRepository : IGenericRepository<TblCulturaNivelUsuario>
     {
         Task<long> Delete(string culture, long idnivelusuario);
-        Task<Cultura_NivelUsuario> Get(string culture, long idnivelusuario);
+        Task<TblCulturaNivelUsuario> Get(string culture, long idnivelusuario);
     }
 }

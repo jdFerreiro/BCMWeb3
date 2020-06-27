@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
@@ -75,7 +74,7 @@ namespace BCMWeb.Infrastructure.Utilities
                 throw;
             }
         }
-        public string Encriptar(string textoQueEncriptaremos, HasAlgorimt hashAlgorithm, Keysize keySize)
+        public string Encriptar(string textoQueEncriptaremos, Keysize keySize)
         {
             this.InicioClaves("8CMW38!N37", "GRUP0@PL1R3D!N3T81@W38700LS", "B1@W38GRUP0@PL1R3D!N3T81@W38700LS!N3T", 5);
             try
@@ -98,8 +97,10 @@ namespace BCMWeb.Infrastructure.Utilities
                     byte[] plainTextBytes = Encoding.UTF8.GetBytes(textoQueEncriptaremos);
                     Rfc2898DeriveBytes password = new Rfc2898DeriveBytes(passBase, saltValueBytes, passwordIterations);
                     byte[] keyBytes = password.GetBytes(((int)keySize / 8));
-                    RijndaelManaged symmetricKey = new RijndaelManaged();
-                    symmetricKey.Mode = CipherMode.CBC;
+                    RijndaelManaged symmetricKey = new RijndaelManaged
+                    {
+                        Mode = CipherMode.CBC
+                    };
                     ICryptoTransform encryptor = symmetricKey.CreateEncryptor(keyBytes, initVectorBytes);
                     MemoryStream memoryStream = new MemoryStream();
                     CryptoStream cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write);
@@ -121,7 +122,7 @@ namespace BCMWeb.Infrastructure.Utilities
                 throw;
             }
         }
-        public string Desencriptar(string textoEncriptado, HasAlgorimt hashAlgorithm, Keysize keySize)
+        public string Desencriptar(string textoEncriptado, Keysize keySize)
         {
             this.InicioClaves("8CMW38!N37", "GRUP0@PL1R3D!N3T81@W38700LS", "B1@W38GRUP0@PL1R3D!N3T81@W38700LS!N3T", 5);
             try
@@ -146,8 +147,10 @@ namespace BCMWeb.Infrastructure.Utilities
                     byte[] plainTextBytes = Convert.FromBase64String(textoEncriptado);
                     Rfc2898DeriveBytes password = new Rfc2898DeriveBytes(passBase, saltValueBytes, passwordIterations);
                     byte[] keyBytes = password.GetBytes(((int)keySize / 8));
-                    RijndaelManaged symmetricKey = new RijndaelManaged();
-                    symmetricKey.Mode = CipherMode.CBC;
+                    RijndaelManaged symmetricKey = new RijndaelManaged
+                    {
+                        Mode = CipherMode.CBC
+                    };
                     ICryptoTransform decryptor = symmetricKey.CreateDecryptor(keyBytes, initVectorBytes);
                     MemoryStream MemoryStream = new MemoryStream();
                     CryptoStream CryptoStream = new CryptoStream(MemoryStream, decryptor, CryptoStreamMode.Write);

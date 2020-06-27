@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface IPersonaRepository : IGenericRepository<Persona>
+    public interface IPersonaRepository : IGenericRepository<TblPersona>
     {
     }
 }

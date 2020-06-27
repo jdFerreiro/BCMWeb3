@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface IDispositivoRepository : IGenericRepository<Dispositivo>
+    public interface IDispositivoRepository : IGenericRepository<TblDispositivo>
     {
     }
 }

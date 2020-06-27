@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface IAuditoriaRepository : IGenericRepository<Auditoria>
+    public interface IAuditoriaRepository : IGenericRepository<TblAuditoria>
     {
-        Task<IEnumerable<Auditoria>> GetAll(long idEmpresa);
-        Task<IEnumerable<Auditoria>> GetAllByUsuarioId(long idEmpresa, long idUsuario);
-        Task<IEnumerable<Auditoria>> GetAllByRangoFechasUsuarioId(long idEmpresa, DateTime startDate, DateTime endDate, long idUsuario);
-        Task<IEnumerable<Auditoria>> GetAllByRangoFechas(long idEmpresa, DateTime startDate, DateTime endDate);
+        Task<IEnumerable<TblAuditoria>> GetAll(long idEmpresa);
+        Task<IEnumerable<TblAuditoria>> GetAllByUsuarioId(long idEmpresa, long idUsuario);
+        Task<IEnumerable<TblAuditoria>> GetAllByRangoFechasUsuarioId(long idEmpresa, DateTime startDate, DateTime endDate, long idUsuario);
+        Task<IEnumerable<TblAuditoria>> GetAllByRangoFechas(long idEmpresa, DateTime startDate, DateTime endDate);
         Task<long> DeleteFromEmpresa(long idEmpresa);
     }
 }

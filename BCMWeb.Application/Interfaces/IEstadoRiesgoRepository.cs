@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface IEstadoRiesgoRepository : IGenericRepository<EstadoRiesgo>
+    public interface IEstadoRiesgoRepository : IGenericRepository<TblEstadoRiesgo>
     {
         Task<long> Delete(long idempresa, short idestadoriesgo);
-        Task<EstadoRiesgo> Get(long idempresa, short idestadoriesgo);
+        Task<TblEstadoRiesgo> Get(long idempresa, short idestadoriesgo);
     }
 }

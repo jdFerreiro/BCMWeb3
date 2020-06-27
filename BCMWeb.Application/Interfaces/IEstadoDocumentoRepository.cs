@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface IEstadoDocumentoRepository : IGenericRepository<EstadoDocumento>
+    public interface IEstadoDocumentoRepository : IGenericRepository<TblEstadoDocumento>
     {
     }
 }

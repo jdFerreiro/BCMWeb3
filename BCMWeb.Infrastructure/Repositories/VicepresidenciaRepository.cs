@@ -18,9 +18,9 @@ namespace BCMWeb.Infrastructure.Repositories
             _configuration = configuration;
         }
 
-        public async Task<long> Add(Vicepresidencia entity)
+        public async Task<long> Add(TblVicepresidencia entity)
         {
-            var sql = "INSERT INTO tblVicepresidencia (IdEmpresa, , Nombre, CalleAvenida, EdificioCasa, PisoNivel, TorreAla, Urbanizacion, IdCiudad, IdEstado, IdPais) VALUES(@IdEmpresa, , @Nombre, @CalleAvenida, @EdificioCasa, @PisoNivel, @TorreAla, @Urbanizacion, @IdCiudad, @IdEstado, @IdPais);";
+            var sql = "INSERT INTO tblVicepresidencia (IdEmpresa, , Name, CalleAvenida, EdificioCasa, PisoNivel, TorreAla, Urbanizacion, IdCiudad, IdEstado, IdPais) VALUES(@IdEmpresa, , @Name, @CalleAvenida, @EdificioCasa, @PisoNivel, @TorreAla, @Urbanizacion, @IdCiudad, @IdEstado, @IdPais);";
             using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
             {
                 connection.Open();
@@ -44,44 +44,44 @@ namespace BCMWeb.Infrastructure.Repositories
             throw new System.NotImplementedException();
         }
 
-        public async Task<Vicepresidencia> Get(long idempresa, long idvicepresidencia)
+        public async Task<TblVicepresidencia> Get(long idempresa, long idvicepresidencia)
         {
-            var sql = "SELECT IdEmpresa, IdVicepresidencia, Nombre, CalleAvenida, EdificioCasa, PisoNivel, TorreAla, Urbanizacion, IdCiudad, IdEstado, IdPais FROM tblVicepresidencia  WHERE IdEmpresa = @idempresa AND IdVicepresidencia = @idvicepresidencia;";
+            var sql = "SELECT IdEmpresa, IdVicepresidencia, Name, CalleAvenida, EdificioCasa, PisoNivel, TorreAla, Urbanizacion, IdCiudad, IdEstado, IdPais FROM tblVicepresidencia  WHERE IdEmpresa = @idempresa AND IdVicepresidencia = @idvicepresidencia;";
 
             using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
             {
                 connection.Open();
-                var _result = await connection.QueryAsync<Vicepresidencia>(sql, new { IdEmpresa = idempresa, IdVicepresidencia = idvicepresidencia });
-                Vicepresidencia _Persona = _result.FirstOrDefault();
+                var _result = await connection.QueryAsync<TblVicepresidencia>(sql, new { IdEmpresa = idempresa, IdVicepresidencia = idvicepresidencia });
+                TblVicepresidencia _Persona = _result.FirstOrDefault();
                 return _Persona;
             }
 
         }
 
-        public Task<Vicepresidencia> Get(long id)
+        public Task<TblVicepresidencia> Get(long id)
         {
             throw new System.NotImplementedException();
         }
 
-        public async Task<IEnumerable<Vicepresidencia>> GetAll()
+        public async Task<IEnumerable<TblVicepresidencia>> GetAll()
         {
-            var sql = "SELECT IdEmpresa, IdVicepresidencia, Nombre, CalleAvenida, EdificioCasa, PisoNivel, TorreAla, Urbanizacion, IdCiudad, IdEstado, IdPais FROM tblVicepresidencia ;";
+            var sql = "SELECT IdEmpresa, IdVicepresidencia, Name, CalleAvenida, EdificioCasa, PisoNivel, TorreAla, Urbanizacion, IdCiudad, IdEstado, IdPais FROM tblVicepresidencia ;";
 
             using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
             {
                 connection.Open();
-                var _result = await connection.QueryAsync<Vicepresidencia>(sql);
+                var _result = await connection.QueryAsync<TblVicepresidencia>(sql);
                 return _result;
             }
 
         }
-        public async Task<long> Update(Vicepresidencia entity)
+        public async Task<long> Update(TblVicepresidencia entity)
         {
-            var sql = "UPDATE tblVicepresidencia SET IdEmpresa = @idempresa, , Nombre = @nombre, CalleAvenida = @calleavenida, EdificioCasa = @edificiocasa, PisoNivel = @pisonivel, TorreAla = @torreala, Urbanizacion = @urbanizacion, IdCiudad = @idciudad, IdEstado = @idestado, IdPais = @idpais WHERE IdEmpresa = @idempresa AND IdVicepresidencia = @idvicepresidencia;";
+            var sql = "UPDATE tblVicepresidencia SET IdEmpresa = @idempresa, , Name = @nombre, CalleAvenida = @calleavenida, EdificioCasa = @edificiocasa, PisoNivel = @pisonivel, TorreAla = @torreala, Urbanizacion = @urbanizacion, IdCiudad = @idciudad, IdEstado = @idestado, IdPais = @idpais WHERE IdEmpresa = @idempresa AND IdVicepresidencia = @idvicepresidencia;";
             using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
             {
                 connection.Open();
-                var _affectedRows = await connection.ExecuteAsync(sql, new { IdEmpresa = entity.IdEmpresa, IdVicepresidencia = entity.IdVicepresidencia });
+                var _affectedRows = await connection.ExecuteAsync(sql, new { entity.IdEmpresa, entity.IdVicepresidencia });
                 return _affectedRows;
             }
         }

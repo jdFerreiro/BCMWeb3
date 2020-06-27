@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface ITipoFrecuenciaRepository : IGenericRepository<TipoFrecuencia>
+    public interface ITipoFrecuenciaRepository : IGenericRepository<TblTipoFrecuencia>
     {
     }
 }

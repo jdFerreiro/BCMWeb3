@@ -1,11 +1,11 @@
 ﻿using BCMWeb.Application.Interfaces;
 using BCMWeb.Core.Entities;
+using BCMWeb.Core.Enums;
+using BCMWeb.Infrastructure.Data;
 using BCMWeb.Infrastructure.Utilities;
-using Dapper;
-using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,118 +13,78 @@ namespace BCMWeb.Infrastructure.Repositories
 {
     public class UsuarioRepository : IUsuarioRepository
     {
-        private Encriptador _encriptar = new Encriptador();
+        private readonly Encriptador _encriptar = new Encriptador();
+        private readonly BcmWebToolsContext _context;
 
-        private readonly IConfiguration _configuration;
-
-        public UsuarioRepository(IConfiguration configuration)
+        public UsuarioRepository(BcmWebToolsContext context)
         {
-            _configuration = configuration;
+            _context = context;
         }
-        public async Task<long> Add(Usuario entity)
-        {
-            entity.FechaEstado = DateTime.Now;
-            entity.EstadoUsuario = Core.Enums.UsuarioEstado.Activo;
-            entity.ClaveUsuario = _encriptar.Encriptar(entity.ClaveUsuario, Encriptador.HasAlgorimt.SHA1, Encriptador.Keysize.KS256);
 
-            var sql = @"INSERT INTO tblUsuario (CodigoUsuario, ClaveUsuario, Nombre, EstadoUsuario, FechaEstado, PrimeraVez, Email)
-                        VALUES(@Codigo, @Passw, @Nombre, @Estado, @FechaEstado, 1, @Codigo);";
-            using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
-            {
-                connection.Open();
-                var _affectedRows = await connection.ExecuteAsync(sql, entity);
-                return _affectedRows;
-            }
+        public async Task<long> Add(User entity)
+        {
+            entity.UserStateDateChange = DateTime.UtcNow;
+            entity.UserStateId = (short)UsuarioEstado.Activo;
+            entity.UserPassw = _encriptar.Encriptar(entity.UserPassw, Encriptador.Keysize.KS256);
+
+            _context.TblUsuario.Add(entity);
+            var _affectedRows = await _context.SaveChangesAsync();
+            return _affectedRows;
         }
         public async Task<long> Delete(long id)
         {
-            var sql = @"UPDATE tblUsuario SET EstadoUsuario = 4, FechaEstado = GETDATE() WHERE IdUsuario = @Id;";
-            using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
-            {
-                connection.Open();
-                var _affectedRows = await connection.ExecuteAsync(sql, new { Id = id });
-                return _affectedRows;
-            }
+            _context.TblUsuario.Remove(_context.TblUsuario.FirstOrDefault(x => x.UserId == id));
+            var _affectedRows = await _context.SaveChangesAsync();
+            return _affectedRows;
         }
-        public async Task<Usuario> Get(long id)
+        public async Task<User> Get(long id)
         {
-            var sql = @"SELECT IdUsuario, CodigoUsuario, ClaveUsuario, Nombre, EstadoUsuario, FechaEstado, FechaUltimaConexion, PrimeraVez, Email
-                        FROM dbo.tblUsuario WHERE IdUsuario = @Id;";
 
-            using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
+            User _usuario = await _context.TblUsuario.FirstOrDefaultAsync(x => x.UserId == id);
+            if (_usuario != null)
             {
-                connection.Open();
-                var _result = await connection.QueryAsync<Usuario>(sql, new { Id = id });
-                Usuario _usuario = _result.FirstOrDefault();
-                if (_usuario != null)
+                _usuario.UserPassw = _encriptar.Desencriptar(_usuario.UserPassw, Encriptador.Keysize.KS256);
+            }
+
+            return _usuario;
+        }
+        public async Task<IEnumerable<User>> GetAll()
+        {
+            return await _context.TblUsuario.ToListAsync();
+        }
+        public async Task<long> Update(User entity)
+        {
+            entity.UserPassw = _encriptar.Encriptar(entity.UserPassw, Encriptador.Keysize.KS256);
+
+            _context.TblUsuario.Update(entity);
+            var _affectedRows = await _context.SaveChangesAsync();
+            return _affectedRows;
+        }
+        public async Task<long> Login(string codigo, string password)
+        {
+            string _encPassword = _encriptar.Encriptar(password, Encriptador.Keysize.KS256);
+            long _valid = 0;
+
+            User _usuario = await _context.TblUsuario.FirstOrDefaultAsync(x => x.UserCode == codigo && x.UserPassw == _encPassword);
+            if (_usuario != null)
+            {
+                switch ((UsuarioEstado)_usuario.UserStateId)
                 {
-                    _usuario.ClaveUsuario = _encriptar.Desencriptar(_usuario.ClaveUsuario, Encriptador.HasAlgorimt.SHA1, Encriptador.Keysize.KS256);
-                }
+                    case UsuarioEstado.Activo:
+                        break;
+                    case UsuarioEstado.Bloqueado:
+                        break;
+                    case UsuarioEstado.Eliminado:
+                        break;
+                    case UsuarioEstado.Inactivo:
+                        _usuario.UserStateId = (short)UsuarioEstado.Activo;
+                        _usuario.UserStateDateChange = DateTime.UtcNow;
 
-                return _usuario;
-            }
+                        var _affectedRows = await _context.SaveChangesAsync();
+                        if (_affectedRows == 0) return _valid;
 
-        }
-        public async Task<IEnumerable<Usuario>> GetAll()
-        {
-            var sql = @"SELECT IdUsuario, CodigoUsuario, ClaveUsuario, Nombre, EstadoUsuario, FechaEstado, FechaUltimaConexion, PrimeraVez, Email
-                        FROM dbo.tblUsuario WHERE EstadoUsuario != 4;";
-
-            using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
-            {
-                connection.Open();
-                var _result = await connection.QueryAsync<Usuario>(sql);
-                return _result;
-            }
-
-        }
-        public async Task<long> Update(Usuario entity)
-        {
-            entity.ClaveUsuario = _encriptar.Encriptar(entity.ClaveUsuario, Encriptador.HasAlgorimt.SHA1, Encriptador.Keysize.KS256);
-
-            var sql = @"UPDATE tblUsuario SET ClaveUsuario = @Passw, Nombre = @Nombre, Email = @Email WHERE IdUsuario = @Id;";
-            using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
-            {
-                connection.Open();
-                var _affectedRows = await connection.ExecuteAsync(sql, new { Id = entity.IdUsuario });
-                return _affectedRows;
-            }
-        }
-        public async Task<int> Login(string codigo, string password)
-        {
-            string _encPassword = _encriptar.Encriptar(password, Encriptador.HasAlgorimt.SHA1, Encriptador.Keysize.KS256);
-            int _valid = 0;
-
-            var sql = @"SELECT IdUsuario, CodigoUsuario, ClaveUsuario, Nombre, EstadoUsuario, FechaEstado, FechaUltimaConexion, PrimeraVez, Email
-                        FROM dbo.tblUsuario WHERE CodigoUsuario = @Codigo AND ClaveUsuario = @Clave;";
-
-            using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
-            {
-                connection.Open();
-                var _result = await connection.QueryAsync<Usuario>(sql, new { Codigo = codigo, Clave = _encPassword });
-                Usuario _usuario = _result.FirstOrDefault();
-                if (_usuario != null)
-                {
-                    switch (_usuario.EstadoUsuario)
-                    {
-                        case Core.Enums.UsuarioEstado.Activo:
-                            _valid = (int)_usuario.EstadoUsuario;
-                            break;
-                        case Core.Enums.UsuarioEstado.Bloqueado:
-                            _valid = (int)_usuario.EstadoUsuario;
-                            break;
-                        case Core.Enums.UsuarioEstado.Eliminado:
-                            _valid = (int)_usuario.EstadoUsuario;
-                            break;
-                        case Core.Enums.UsuarioEstado.Inactivo:
-                            EmpresaRepository empresaRepository = new EmpresaRepository(_configuration);
-                            AuditoriaRepository auditoriaRepository = new AuditoriaRepository(_configuration);
-                            _usuario.Empresas = empresaRepository.GetEmpresasByUsuario(_usuario.IdUsuario).Result;
-                            sql = @"UPDATE tblUsuario SET EstadoUsuario = 2, FechaEstado = GETDATE() WHERE IdUsuario = @Id;";
-                            var _affectedRows = await connection.ExecuteAsync(sql, new { Id = _usuario.IdUsuario });
-                            if (_affectedRows > 0) _valid = (int)Core.Enums.UsuarioEstado.Activo;
-                            break;
-                    }
+                        _valid = _usuario.UserId;
+                        break;
                 }
             }
 
@@ -132,23 +92,19 @@ namespace BCMWeb.Infrastructure.Repositories
         }
         public async Task<long> LogOut(long id)
         {
-            var sql = @"UPDATE tblUsuario SET EstadoUsuario = 1, FechaEstado = GETDATE() WHERE IdUsuario = @Id;";
-            using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
-            {
-                connection.Open();
-                var _affectedRows = await connection.ExecuteAsync(sql, new { Id = id });
-                return _affectedRows;
-            }
+            User _usuario = await _context.TblUsuario.FirstOrDefaultAsync(x => x.UserId == id);
+            _usuario.UserStateId = (short)UsuarioEstado.Inactivo;
+            _usuario.UserStateDateChange = DateTime.UtcNow;
+            var _affectedRows = await _context.SaveChangesAsync();
+            return _affectedRows;
         }
         public async Task<long> Lock(long id)
         {
-            var sql = @"UPDATE tblUsuario SET EstadoUsuario = 3, FechaEstado = GETDATE() WHERE IdUsuario = @Id;";
-            using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
-            {
-                connection.Open();
-                var _affectedRows = await connection.ExecuteAsync(sql, new { Id = id });
-                return _affectedRows;
-            }
+            User _usuario = await _context.TblUsuario.FirstOrDefaultAsync(x => x.UserId == id);
+            _usuario.UserStateId = (short)UsuarioEstado.Bloqueado;
+            _usuario.UserStateDateChange = DateTime.UtcNow;
+            var _affectedRows = await _context.SaveChangesAsync();
+            return _affectedRows;
         }
     }
 }

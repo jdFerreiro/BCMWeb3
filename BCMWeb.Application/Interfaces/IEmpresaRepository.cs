@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface IEmpresaRepository : IGenericRepository<Empresa>
+    public interface IEmpresaRepository : IGenericRepository<TblEmpresa>
     {
-        Task<IEnumerable<Empresa>> GetEmpresasByUsuario(long idUsuario);
+        Task<IEnumerable<TblEmpresa>> GetEmpresasByUsuario(long idUsuario);
     }
 }

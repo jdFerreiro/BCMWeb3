@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface IPMTMensajeActualizacionRepository : IGenericRepository<PMTMensajeActualizacion>
+    public interface IPMTMensajeActualizacionRepository : IGenericRepository<TblPmtmensajeActualizacion>
     {
     }
 }

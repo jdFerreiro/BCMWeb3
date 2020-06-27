@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface ICultura_TipoUbicacionInformacionRepository : IGenericRepository<Cultura_TipoUbicacionInformacion>
+    public interface ICultura_TipoUbicacionInformacionRepository : IGenericRepository<TblCulturaTipoUbicacionInformacion>
     {
         Task<long> Delete(string culture, int idtipoubicacioninformacion);
-        Task<Cultura_TipoUbicacionInformacion> Get(string culture, int idtipoubicacioninformacion);
+        Task<TblCulturaTipoUbicacionInformacion> Get(string culture, int idtipoubicacioninformacion);
     }
 }

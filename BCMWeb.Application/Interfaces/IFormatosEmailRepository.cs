@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface IFormatosEmailRepository : IGenericRepository<FormatosEmail>
+    public interface IFormatosEmailRepository : IGenericRepository<TblFormatosEmail>
     {
         Task<long> Delete(long idempresa, long idcodigomodulo, int idcorreo);
-        Task<FormatosEmail> Get(long idempresa, long idcodigomodulo, int idcorreo);
+        Task<TblFormatosEmail> Get(long idempresa, long idcodigomodulo, int idcorreo);
     }
 }

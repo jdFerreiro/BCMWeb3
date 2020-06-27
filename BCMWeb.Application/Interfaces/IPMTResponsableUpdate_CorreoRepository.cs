@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface IPMTResponsableUpdate_CorreoRepository : IGenericRepository<PMTResponsableUpdate_Correo>
+    public interface IPMTResponsableUpdate_CorreoRepository : IGenericRepository<TblPmtresponsableUpdateCorreo>
     {
         Task<long> Delete(long idempresa, long idmodulo, long idmensaje, long idusuario);
-        Task<PMTResponsableUpdate_Correo> Get(long idempresa, long idmodulo, long idmensaje, long idusuario);
+        Task<TblPmtresponsableUpdateCorreo> Get(long idempresa, long idmodulo, long idmensaje, long idusuario);
     }
 }

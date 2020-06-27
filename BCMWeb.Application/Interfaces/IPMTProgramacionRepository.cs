@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface IPMTProgramacionRepository : IGenericRepository<PMTProgramacion>
+    public interface IPMTProgramacionRepository : IGenericRepository<TblPmtprogramacion>
     {
     }
 }

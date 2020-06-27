@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface IModulo_NivelUsuarioRepository : IGenericRepository<Modulo_NivelUsuario>
+    public interface IModulo_NivelUsuarioRepository : IGenericRepository<TblModuloNivelUsuario>
     {
         Task<long> Delete(long idempresa, long idnivelusuario, long idmodulo);
-        Task<Modulo_NivelUsuario> Get(long idempresa, long idnivelusuario, long idmodulo);
+        Task<TblModuloNivelUsuario> Get(long idempresa, long idnivelusuario, long idmodulo);
     }
 }

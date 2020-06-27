@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface IDispositivoConexionRepository : IGenericRepository<DispositivoConexion>
+    public interface IDispositivoConexionRepository : IGenericRepository<TblDispositivoConexion>
     {
         Task<long> Delete(long idempresa, long iddispositivo, long idusuario, DateTime fechaconexion);
-        Task<DispositivoConexion> Get(long idempresa, long iddispositivo, long idusuario, DateTime fechaconexion);
+        Task<TblDispositivoConexion> Get(long idempresa, long iddispositivo, long idusuario, DateTime fechaconexion);
     }
 }
