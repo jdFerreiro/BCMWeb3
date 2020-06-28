@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface IMesRepository : IGenericRepository<TblMes>
+    public interface IMesRepository : IGenericRepository<Month>
     {
         Task<long> Delete(int idmes);
-        Task<TblMes> Get(int idmes);
+        Task<Month> Get(int idmes);
     }
 }

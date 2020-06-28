@@ -1,0 +1,15 @@
+﻿namespace BCMWeb.Core.Entities
+{
+    public partial class MenuLevelUser
+    {
+        public long CompanyId { get; set; }
+        public long UserLevelId { get; set; }
+        public long MenuItemId { get; set; }
+        public bool CanUpdate { get; set; }
+        public bool CanDelete { get; set; }
+
+        public virtual MenuOption MenuOptionInfo { get; set; }
+        public virtual Company CompanyInfo { get; set; }
+        public virtual UserLevel UserLevelInfo { get; set; }
+    }
+}

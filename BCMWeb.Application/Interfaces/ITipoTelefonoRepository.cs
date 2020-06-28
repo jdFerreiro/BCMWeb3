@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface ITipoTelefonoRepository : IGenericRepository<TblTipoTelefono>
+    public interface ITipoTelefonoRepository : IGenericRepository<PhoneType>
     {
     }
 }

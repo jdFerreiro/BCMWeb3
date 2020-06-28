@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface IPlanTrabajoEstatusRepository : IGenericRepository<TblPlanTrabajoEstatus>
+    public interface IPlanTrabajoEstatusRepository : IGenericRepository<WorkScheduleState>
     {
         Task<long> Delete(short idestatusactividad);
-        Task<TblPlanTrabajoEstatus> Get(short idestatusactividad);
+        Task<WorkScheduleState> Get(short idestatusactividad);
     }
 }

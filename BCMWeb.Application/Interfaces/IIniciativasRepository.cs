@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface IIniciativasRepository : IGenericRepository<TblIniciativas>
+    public interface IIniciativasRepository : IGenericRepository<Intiative>
     {
-        Task<TblIniciativas> Get(long idempresa, long idiniciativa);
+        Task<Intiative> Get(long idempresa, long idiniciativa);
         Task<long> Delete(long idempresa, long idiniciativa);
     }
 }

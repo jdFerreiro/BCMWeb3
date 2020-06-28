@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface IEstadoProcesoRepository : IGenericRepository<TblEstadoProceso>
+    public interface IEstadoProcesoRepository : IGenericRepository<ProcessState>
     {
     }
 }

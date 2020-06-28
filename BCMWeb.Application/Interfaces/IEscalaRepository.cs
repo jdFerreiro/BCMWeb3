@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface IEscalaRepository : IGenericRepository<TblEscala>
+    public interface IEscalaRepository : IGenericRepository<Scale>
     {
         Task<long> Delete(long idempresa, long idescala);
-        Task<TblEscala> Get(long idempresa, long idescala);
+        Task<Scale> Get(long idempresa, long idescala);
     }
 }

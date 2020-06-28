@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface IPMTProgramacionTipoActualizacionRepository : IGenericRepository<TblPmtprogramacionTipoActualizacion>
+    public interface IPMTProgramacionTipoActualizacionRepository : IGenericRepository<PMTScheduleUpdateType>
     {
         Task<long> Delete(short idtipoactualizacion);
-        Task<TblPmtprogramacionTipoActualizacion> Get(short idtipoactualizacion);
+        Task<PMTScheduleUpdateType> Get(short idtipoactualizacion);
     }
 }

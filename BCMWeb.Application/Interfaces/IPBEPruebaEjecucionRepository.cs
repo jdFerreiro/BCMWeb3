@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface IPBEPruebaEjecucionRepository : IGenericRepository<TblPbepruebaEjecucion>
+    public interface IPBEPruebaEjecucionRepository : IGenericRepository<PPETestExecution>
     {
         Task<long> Delete(long idempresa, long idplanificacion);
-        Task<TblPbepruebaEjecucion> Get(long idempresa, long idplanificacion);
+        Task<PPETestExecution> Get(long idempresa, long idplanificacion);
     }
 }

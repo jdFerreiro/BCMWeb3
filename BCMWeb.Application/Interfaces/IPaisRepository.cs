@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface IPaisRepository : IGenericRepository<TblPais>
+    public interface IPaisRepository : IGenericRepository<Country>
     {
     }
 }

@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface IBCPDocumentoRepository : IGenericRepository<TblBcpdocumento>
+    public interface IBCPDocumentoRepository : IGenericRepository<BCPDocument>
     {
         Task<long> Delete(long idempresa, long iddocumentobcp);
-        Task<TblBcpdocumento> Get(long idempresa, long iddocumentobcp);
+        Task<BCPDocument> Get(long idempresa, long iddocumentobcp);
     }
 }

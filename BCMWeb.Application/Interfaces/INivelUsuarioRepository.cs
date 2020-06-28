@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface INivelUsuarioRepository : IGenericRepository<TblNivelUsuario>
+    public interface INivelUsuarioRepository : IGenericRepository<UserLevel>
     {
     }
 }

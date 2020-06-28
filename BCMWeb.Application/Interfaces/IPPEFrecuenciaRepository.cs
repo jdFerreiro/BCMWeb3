@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface IPPEFrecuenciaRepository : IGenericRepository<TblPpefrecuencia>
+    public interface IPPEFrecuenciaRepository : IGenericRepository<PPEFrecuency>
     {
         Task<long> Delete(long idempresa, long iddocumento, long idtipodocumento, long idppefrecuencia);
-        Task<TblPpefrecuencia> Get(long idempresa, long iddocumento, long idtipodocumento, long idppefrecuencia);
+        Task<PPEFrecuency> Get(long idempresa, long iddocumento, long idtipodocumento, long idppefrecuencia);
     }
 }

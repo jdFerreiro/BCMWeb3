@@ -18,9 +18,9 @@ namespace BCMWeb.Infrastructure.Repositories
             _configuration = configuration;
         }
 
-        public async Task<long> Add(TblUsuarioUnidadOrganizativa entity)
+        public async Task<long> Add(UserOrganizationUnit entity)
         {
-            var sql = "INSERT INTO tblUsuarioUnidadOrganizativa (IdEmpresa, IdUnidadOrganizativa, UserId, IdNivelUsuario) VALUES(@IdEmpresa, @IdUnidadOrganizativa, @UserId, @IdNivelUsuario);";
+            var sql = "INSERT INTO tblUsuarioUnidadOrganizativa (CompanyId, OrganizationUnitId, UserOwnerId, LevelUserId) VALUES(@CompanyId, @OrganizationUnitId, @UserOwnerId, @LevelUserId);";
             using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
             {
                 connection.Open();
@@ -30,7 +30,7 @@ namespace BCMWeb.Infrastructure.Repositories
         }
         public async Task<long> Delete(long idempresa, long idunidadorganizativa, long idusuario)
         {
-            var sql = "DELETE FROM tblUsuarioUnidadOrganizativa WHERE IdEmpresa = @idempresa AND IdUnidadOrganizativa = @idunidadorganizativa AND UserId = @idusuario;";
+            var sql = "DELETE FROM tblUsuarioUnidadOrganizativa WHERE CompanyId = @idempresa AND OrganizationUnitId = @idunidadorganizativa AND UserOwnerId = @idusuario;";
             using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
             {
                 connection.Open();
@@ -44,44 +44,44 @@ namespace BCMWeb.Infrastructure.Repositories
             throw new System.NotImplementedException();
         }
 
-        public async Task<TblUsuarioUnidadOrganizativa> Get(long idempresa, long idunidadorganizativa, long idusuario)
+        public async Task<UserOrganizationUnit> Get(long idempresa, long idunidadorganizativa, long idusuario)
         {
-            var sql = "SELECT IdEmpresa, IdUnidadOrganizativa, UserId, IdNivelUsuario FROM tblUsuarioUnidadOrganizativa  WHERE IdEmpresa = @idempresa AND IdUnidadOrganizativa = @idunidadorganizativa AND UserId = @idusuario;";
+            var sql = "SELECT CompanyId, OrganizationUnitId, UserOwnerId, LevelUserId FROM tblUsuarioUnidadOrganizativa  WHERE CompanyId = @idempresa AND OrganizationUnitId = @idunidadorganizativa AND UserOwnerId = @idusuario;";
 
             using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
             {
                 connection.Open();
-                var _result = await connection.QueryAsync<TblUsuarioUnidadOrganizativa>(sql, new { IdEmpresa = idempresa, IdUnidadOrganizativa = idunidadorganizativa, IdUsuario = idusuario });
-                TblUsuarioUnidadOrganizativa _Persona = _result.FirstOrDefault();
+                var _result = await connection.QueryAsync<UserOrganizationUnit>(sql, new { IdEmpresa = idempresa, IdUnidadOrganizativa = idunidadorganizativa, IdUsuario = idusuario });
+                UserOrganizationUnit _Persona = _result.FirstOrDefault();
                 return _Persona;
             }
 
         }
 
-        public Task<TblUsuarioUnidadOrganizativa> Get(long id)
+        public Task<UserOrganizationUnit> Get(long id)
         {
             throw new System.NotImplementedException();
         }
 
-        public async Task<IEnumerable<TblUsuarioUnidadOrganizativa>> GetAll()
+        public async Task<IEnumerable<UserOrganizationUnit>> GetAll()
         {
-            var sql = "SELECT IdEmpresa, IdUnidadOrganizativa, UserId, IdNivelUsuario FROM tblUsuarioUnidadOrganizativa ;";
+            var sql = "SELECT CompanyId, OrganizationUnitId, UserOwnerId, LevelUserId FROM tblUsuarioUnidadOrganizativa ;";
 
             using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
             {
                 connection.Open();
-                var _result = await connection.QueryAsync<TblUsuarioUnidadOrganizativa>(sql);
+                var _result = await connection.QueryAsync<UserOrganizationUnit>(sql);
                 return _result;
             }
 
         }
-        public async Task<long> Update(TblUsuarioUnidadOrganizativa entity)
+        public async Task<long> Update(UserOrganizationUnit entity)
         {
-            var sql = "UPDATE tblUsuarioUnidadOrganizativa SET IdEmpresa = @idempresa, IdUnidadOrganizativa = @idunidadorganizativa, UserId = @idusuario, IdNivelUsuario = @idnivelusuario WHERE IdEmpresa = @idempresa AND IdUnidadOrganizativa = @idunidadorganizativa AND UserId = @idusuario;";
+            var sql = "UPDATE tblUsuarioUnidadOrganizativa SET CompanyId = @idempresa, OrganizationUnitId = @idunidadorganizativa, UserOwnerId = @idusuario, LevelUserId = @idnivelusuario WHERE CompanyId = @idempresa AND OrganizationUnitId = @idunidadorganizativa AND UserOwnerId = @idusuario;";
             using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
             {
                 connection.Open();
-                var _affectedRows = await connection.ExecuteAsync(sql, new { entity.IdEmpresa, entity.IdUnidadOrganizativa, entity.IdUsuario });
+                var _affectedRows = await connection.ExecuteAsync(sql, new { entity.CompanyId, entity.OrganizationUnitId, entity.UserId });
                 return _affectedRows;
             }
         }

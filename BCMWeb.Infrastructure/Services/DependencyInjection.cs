@@ -85,7 +85,7 @@ namespace BCMWeb.Infrastructure.Services
             //services.AddTransient<ICulture_TipoIncidenteRepository, Culture_TipoIncidenteRepository>();
             //services.AddTransient<IDispositivoConexionRepository, DispositivoConexionRepository>();
             //services.AddTransient<IDispositivoEnvioRepository, DispositivoEnvioRepository>();
-            //services.AddTransient<IDispositivoRepository, DispositivoRepository>();
+            //services.AddTransient<IDeviceRepository, DispositivoRepository>();
             //services.AddTransient<IDocumentoAnexoRepository, DocumentoAnexoRepository>();
             //services.AddTransient<IDocumentoAprobacionRepository, DocumentoAprobacionRepository>();
             //services.AddTransient<IDocumentoCertificacionRepository, DocumentoCertificacionRepository>();

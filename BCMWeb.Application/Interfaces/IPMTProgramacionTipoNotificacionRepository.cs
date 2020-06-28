@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface IPMTProgramacionTipoNotificacionRepository : IGenericRepository<TblPmtprogramacionTipoNotificacion>
+    public interface IPMTProgramacionTipoNotificacionRepository : IGenericRepository<PMTScheduleNotificationType>
     {
         Task<long> Delete(short idtiponotificacion);
-        Task<TblPmtprogramacionTipoNotificacion> Get(short idtiponotificacion);
+        Task<PMTScheduleNotificationType> Get(short idtiponotificacion);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface ITipoDireccionRepository : IGenericRepository<TblTipoDireccion>
+    public interface ITipoDireccionRepository : IGenericRepository<AddressType>
     {
     }
 }

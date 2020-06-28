@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface INivelImpactoRepository : IGenericRepository<TblNivelImpacto>
+    public interface INivelImpactoRepository : IGenericRepository<ImpactLevel>
     {
         Task<long> Delete(int idnivelimpacto);
-        Task<TblNivelImpacto> Get(int idnivelimpacto);
+        Task<ImpactLevel> Get(int idnivelimpacto);
     }
 }

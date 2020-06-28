@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface IBCPRestauracionEquipoRepository : IGenericRepository<TblBcprestauracionEquipo>
+    public interface IBCPRestauracionEquipoRepository : IGenericRepository<BCPRestoreKit>
     {
         Task<long> Delete(long idempresa, long iddocumentobcp, long idbcprestauracionequipo);
-        Task<TblBcprestauracionEquipo> Get(long idempresa, long iddocumentobcp, long idbcprestauracionequipo);
+        Task<BCPRestoreKit> Get(long idempresa, long iddocumentobcp, long idbcprestauracionequipo);
     }
 }

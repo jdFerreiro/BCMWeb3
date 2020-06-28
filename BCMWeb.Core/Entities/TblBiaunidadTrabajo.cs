@@ -6,16 +6,16 @@ namespace BCMWeb.Core.Entities
     {
         public TblBiaunidadTrabajo()
         {
-            TblBiaunidadTrabajoProceso = new HashSet<TblBiaunidadTrabajoProceso>();
+            WorkUnitProcesses = new HashSet<BIAWorkUnitProcess>();
         }
 
-        public long IdEmpresa { get; set; }
-        public long IdUnidadTrabajo { get; set; }
-        public string Nombre { get; set; }
-        public long IdUnidadOrganizativa { get; set; }
+        public long CompanyId { get; set; }
+        public long WorkUnitId { get; set; }
+        public string Name { get; set; }
+        public long OUId { get; set; }
 
-        public virtual TblUnidadOrganizativa Id { get; set; }
-        public virtual TblEmpresa IdEmpresaNavigation { get; set; }
-        public virtual ICollection<TblBiaunidadTrabajoProceso> TblBiaunidadTrabajoProceso { get; set; }
+        public virtual OrganizationUnit OUInfo { get; set; }
+        public virtual Company CompanyInfo { get; set; }
+        public virtual ICollection<BIAWorkUnitProcess> WorkUnitProcesses { get; set; }
     }
 }

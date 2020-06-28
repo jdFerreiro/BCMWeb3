@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface ITipoInterdependenciaRepository : IGenericRepository<TblTipoInterdependencia>
+    public interface ITipoInterdependenciaRepository : IGenericRepository<InterdependencyType>
     {
         Task<long> Delete(int idtipointerdependencia);
-        Task<TblTipoInterdependencia> Get(int idtipointerdependencia);
+        Task<InterdependencyType> Get(int idtipointerdependencia);
     }
 }

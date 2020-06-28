@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface ITipoCorreoRepository : IGenericRepository<TblTipoCorreo>
+    public interface ITipoCorreoRepository : IGenericRepository<EmailType>
     {
     }
 }

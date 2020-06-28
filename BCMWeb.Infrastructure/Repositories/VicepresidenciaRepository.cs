@@ -18,9 +18,9 @@ namespace BCMWeb.Infrastructure.Repositories
             _configuration = configuration;
         }
 
-        public async Task<long> Add(TblVicepresidencia entity)
+        public async Task<long> Add(VicePresidency entity)
         {
-            var sql = "INSERT INTO tblVicepresidencia (IdEmpresa, , Name, CalleAvenida, EdificioCasa, PisoNivel, TorreAla, Urbanizacion, IdCiudad, IdEstado, IdPais) VALUES(@IdEmpresa, , @Name, @CalleAvenida, @EdificioCasa, @PisoNivel, @TorreAla, @Urbanizacion, @IdCiudad, @IdEstado, @IdPais);";
+            var sql = "INSERT INTO tblVicepresidencia (CompanyId, , Name, AvenueStreetName, BuildingHouseName, FloorLevel, TowerSideName, UrbanizationName, CityId, CountryStateId, CountryId) VALUES(@CompanyId, , @Name, @AvenueStreetName, @BuildingHouseName, @FloorLevel, @TowerSideName, @UrbanizationName, @CityId, @CountryStateId, @CountryId);";
             using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
             {
                 connection.Open();
@@ -30,7 +30,7 @@ namespace BCMWeb.Infrastructure.Repositories
         }
         public async Task<long> Delete(long idempresa, long idvicepresidencia)
         {
-            var sql = "DELETE FROM tblVicepresidencia WHERE IdEmpresa = @idempresa AND IdVicepresidencia = @idvicepresidencia;";
+            var sql = "DELETE FROM tblVicepresidencia WHERE CompanyId = @idempresa AND VicepresidencyId = @idvicepresidencia;";
             using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
             {
                 connection.Open();
@@ -44,44 +44,44 @@ namespace BCMWeb.Infrastructure.Repositories
             throw new System.NotImplementedException();
         }
 
-        public async Task<TblVicepresidencia> Get(long idempresa, long idvicepresidencia)
+        public async Task<VicePresidency> Get(long idempresa, long idvicepresidencia)
         {
-            var sql = "SELECT IdEmpresa, IdVicepresidencia, Name, CalleAvenida, EdificioCasa, PisoNivel, TorreAla, Urbanizacion, IdCiudad, IdEstado, IdPais FROM tblVicepresidencia  WHERE IdEmpresa = @idempresa AND IdVicepresidencia = @idvicepresidencia;";
+            var sql = "SELECT CompanyId, VicepresidencyId, Name, AvenueStreetName, BuildingHouseName, FloorLevel, TowerSideName, UrbanizationName, CityId, CountryStateId, CountryId FROM tblVicepresidencia  WHERE CompanyId = @idempresa AND VicepresidencyId = @idvicepresidencia;";
 
             using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
             {
                 connection.Open();
-                var _result = await connection.QueryAsync<TblVicepresidencia>(sql, new { IdEmpresa = idempresa, IdVicepresidencia = idvicepresidencia });
-                TblVicepresidencia _Persona = _result.FirstOrDefault();
+                var _result = await connection.QueryAsync<VicePresidency>(sql, new { IdEmpresa = idempresa, IdVicepresidencia = idvicepresidencia });
+                VicePresidency _Persona = _result.FirstOrDefault();
                 return _Persona;
             }
 
         }
 
-        public Task<TblVicepresidencia> Get(long id)
+        public Task<VicePresidency> Get(long id)
         {
             throw new System.NotImplementedException();
         }
 
-        public async Task<IEnumerable<TblVicepresidencia>> GetAll()
+        public async Task<IEnumerable<VicePresidency>> GetAll()
         {
-            var sql = "SELECT IdEmpresa, IdVicepresidencia, Name, CalleAvenida, EdificioCasa, PisoNivel, TorreAla, Urbanizacion, IdCiudad, IdEstado, IdPais FROM tblVicepresidencia ;";
+            var sql = "SELECT CompanyId, VicepresidencyId, Name, AvenueStreetName, BuildingHouseName, FloorLevel, TowerSideName, UrbanizationName, CityId, CountryStateId, CountryId FROM tblVicepresidencia ;";
 
             using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
             {
                 connection.Open();
-                var _result = await connection.QueryAsync<TblVicepresidencia>(sql);
+                var _result = await connection.QueryAsync<VicePresidency>(sql);
                 return _result;
             }
 
         }
-        public async Task<long> Update(TblVicepresidencia entity)
+        public async Task<long> Update(VicePresidency entity)
         {
-            var sql = "UPDATE tblVicepresidencia SET IdEmpresa = @idempresa, , Name = @nombre, CalleAvenida = @calleavenida, EdificioCasa = @edificiocasa, PisoNivel = @pisonivel, TorreAla = @torreala, Urbanizacion = @urbanizacion, IdCiudad = @idciudad, IdEstado = @idestado, IdPais = @idpais WHERE IdEmpresa = @idempresa AND IdVicepresidencia = @idvicepresidencia;";
+            var sql = "UPDATE tblVicepresidencia SET CompanyId = @idempresa, , Name = @nombre, AvenueStreetName = @calleavenida, BuildingHouseName = @edificiocasa, FloorLevel = @pisonivel, TowerSideName = @torreala, UrbanizationName = @urbanizacion, CityId = @idciudad, CountryStateId = @idestado, CountryId = @idpais WHERE CompanyId = @idempresa AND VicepresidencyId = @idvicepresidencia;";
             using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
             {
                 connection.Open();
-                var _affectedRows = await connection.ExecuteAsync(sql, new { entity.IdEmpresa, entity.IdVicepresidencia });
+                var _affectedRows = await connection.ExecuteAsync(sql, new { entity.CompanyId, entity.VicepresidencyId });
                 return _affectedRows;
             }
         }
