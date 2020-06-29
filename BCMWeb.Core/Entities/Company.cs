@@ -3,16 +3,16 @@ using System.Collections.Generic;
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class Company
+    public class Company : BaseEntity
     {
         public Company()
         {
             Audits = new HashSet<Audit>();
-            CriticalProcessAudit = new HashSet<AuditCriticalProcess>();
+            CriticalProcessAudit = new HashSet<CriticalProcessAudit>();
             BCPDocs = new HashSet<BCPDocument>();
             BIAServiceChains = new HashSet<BIAServiceChain>();
             BIADocs = new HashSet<BIADocument>();
-            BIAWorkUnits = new HashSet<TblBiaunidadTrabajo>();
+            BIAWorkUnits = new HashSet<BIAWorkUnit>();
             EmployeePositions = new HashSet<Position>();
             Criticalitys = new HashSet<Criticality>();
             MobileDeviceConnectios = new HashSet<DeviceConnection>();
@@ -70,11 +70,11 @@ namespace BCMWeb.Core.Entities
         public virtual City CityInfo { get; set; }
         public virtual Country CountryInfo { get; set; }
         public virtual ICollection<Audit> Audits { get; set; }
-        public virtual ICollection<AuditCriticalProcess> CriticalProcessAudit { get; set; }
+        public virtual ICollection<CriticalProcessAudit> CriticalProcessAudit { get; set; }
         public virtual ICollection<BCPDocument> BCPDocs { get; set; }
         public virtual ICollection<BIAServiceChain> BIAServiceChains { get; set; }
         public virtual ICollection<BIADocument> BIADocs { get; set; }
-        public virtual ICollection<TblBiaunidadTrabajo> BIAWorkUnits { get; set; }
+        public virtual ICollection<BIAWorkUnit> BIAWorkUnits { get; set; }
         public virtual ICollection<Position> EmployeePositions { get; set; }
         public virtual ICollection<Criticality> Criticalitys { get; set; }
         public virtual ICollection<DeviceConnection> MobileDeviceConnectios { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class WorkScheduleStateCulture
+    public class WorkScheduleStateCulture : BaseEntity
     {
         public string Culture { get; set; }
         public short WorkScheduleStateId { get; set; }

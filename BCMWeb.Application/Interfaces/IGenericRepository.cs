@@ -1,14 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using BCMWeb.Core.Entities;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace BCMWeb.Application.Interfaces
 {
-    public interface IGenericRepository<T> where T : class
+    public interface IGenericRepository<T> where T : BaseEntity
     {
-        Task<T> Get(long id);
-        Task<IEnumerable<T>> GetAll();
-        Task<long> Add(T entity);
-        Task<long> Delete(long id);
-        Task<long> Update(T entity);
+        IEnumerable<T> GetAll();
+        Task<T> Get(object[] keyValues);
+        Task Add(T entity);
+        Task Delete(object[] keyValues);
+        void Update(T entity);
     }
 }

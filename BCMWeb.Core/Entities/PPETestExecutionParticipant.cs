@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class PPETestExecutionParticipant
+    public class PPETestExecutionParticipant : BaseEntity
     {
         public PPETestExecutionParticipant()
         {

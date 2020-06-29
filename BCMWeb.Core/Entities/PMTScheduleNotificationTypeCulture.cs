@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class PMTScheduleNotificationTypeCulture
+    public class PMTScheduleNotificationTypeCulture : BaseEntity
     {
         public string Culture { get; set; }
         public short NotificationTypeId { get; set; }

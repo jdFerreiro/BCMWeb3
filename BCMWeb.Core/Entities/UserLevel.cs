@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class UserLevel
+    public class UserLevel : BaseEntity
     {
         public UserLevel()
         {

@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class MonthCulture
+    public class MonthCulture : BaseEntity
     {
         public string Culture { get; set; }
         public int MonthId { get; set; }

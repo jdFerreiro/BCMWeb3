@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class Criticality
+    public class Criticality : BaseEntity
     {
         public DateTime ApplicationDate { get; set; }
         public long CompanyId { get; set; }

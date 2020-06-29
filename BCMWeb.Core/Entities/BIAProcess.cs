@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class BIAProcess
+    public class BIAProcess : BaseEntity
     {
         public BIAProcess()
         {

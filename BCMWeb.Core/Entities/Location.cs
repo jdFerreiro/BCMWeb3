@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class Location
+    public class Location : BaseEntity
     {
         public long CompanyId { get; set; }
         public long LocationId { get; set; }

@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class RiskProbability
+    public class RiskProbability : BaseEntity
     {
         public RiskProbability()
         {

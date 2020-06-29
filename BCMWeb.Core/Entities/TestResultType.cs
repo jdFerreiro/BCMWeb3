@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class TestResultType
+    public class TestResultType : BaseEntity
     {
         public TestResultType()
         {

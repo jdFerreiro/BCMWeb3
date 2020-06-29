@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class RiskSource
+    public class RiskSource : BaseEntity
     {
         public RiskSource()
         {

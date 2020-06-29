@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class PMTUpdateResponsableEmail
+    public class PMTUpdateResponsableEmail : BaseEntity
     {
         public long CompanyId { get; set; }
         public long MenuOptionId { get; set; }

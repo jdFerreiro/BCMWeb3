@@ -1,11 +1,12 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class UserOrganizationUnit
+    public class UserOrganizationUnit : BaseEntity
     {
         public long CompanyId { get; set; }
-        public long OrganizationUnitId { get; set; }
         public long UserId { get; set; }
         public long LevelUserId { get; set; }
+
+        public long OrganizationUnitId { get; set; }
 
         public virtual OrganizationUnit OrganizationUnitInfo { get; set; }
         public virtual Company CompanyInfo { get; set; }

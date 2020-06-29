@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class DocumentInterview
+    public class DocumentInterview : BaseEntity
     {
         public DocumentInterview()
         {

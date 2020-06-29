@@ -2,12 +2,12 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class Person
+    public class Person : BaseEntity
     {
         public Person()
         {
-            BPERestartVIPPersons = new HashSet<BCPRestartVIPPerson>();
-            BCPRecoverVIPPersons = new HashSet<BCPRestoreKeyPerson>();
+            BPERestartVIPPersons = new HashSet<BCPResumptionVIPPerson>();
+            BCPRecoverVIPPersons = new HashSet<BCPRecoveryKeyPerson>();
             BIABackupProcessPersons = new HashSet<BIAProcessBackupPerson>();
             DocApprovals = new HashSet<DocumentApproval>();
             DocsCertifications = new HashSet<DocumentCertification>();
@@ -29,8 +29,8 @@ namespace BCMWeb.Core.Entities
         public virtual Company CompanyInfo { get; set; }
         public virtual OrganizationUnit OUInfo { get; set; }
         public virtual User UserInfo { get; set; }
-        public virtual ICollection<BCPRestartVIPPerson> BPERestartVIPPersons { get; set; }
-        public virtual ICollection<BCPRestoreKeyPerson> BCPRecoverVIPPersons { get; set; }
+        public virtual ICollection<BCPResumptionVIPPerson> BPERestartVIPPersons { get; set; }
+        public virtual ICollection<BCPRecoveryKeyPerson> BCPRecoverVIPPersons { get; set; }
         public virtual ICollection<BIAProcessBackupPerson> BIABackupProcessPersons { get; set; }
         public virtual ICollection<DocumentApproval> DocApprovals { get; set; }
         public virtual ICollection<DocumentCertification> DocsCertifications { get; set; }

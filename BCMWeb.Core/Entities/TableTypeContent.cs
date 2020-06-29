@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class TableTypeContent
+    public class TableTypeContent : BaseEntity
     {
         public TableTypeContent()
         {

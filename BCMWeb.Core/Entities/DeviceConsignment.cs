@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class DeviceConsignment
+    public class DeviceConsignment : BaseEntity
     {
         public long DeviceId { get; set; }
         public long UserOwnerId { get; set; }

@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class City
+    public class City : BaseEntity
     {
         public City()
         {

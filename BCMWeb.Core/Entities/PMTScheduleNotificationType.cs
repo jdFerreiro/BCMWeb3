@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class PMTScheduleNotificationType
+    public class PMTScheduleNotificationType : BaseEntity
     {
         public PMTScheduleNotificationType()
         {

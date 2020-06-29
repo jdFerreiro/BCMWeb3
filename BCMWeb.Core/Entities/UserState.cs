@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class UserState
+    public class UserState : BaseEntity
     {
         public UserState()
         {

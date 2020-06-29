@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class BIABigImpact
+    public class BIABigImpact : BaseEntity
     {
         public long CompanyId { get; set; }
         public long BIADocumentId { get; set; }

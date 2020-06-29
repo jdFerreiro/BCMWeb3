@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class PhoneType
+    public class PhoneType : BaseEntity
     {
         public PhoneType()
         {

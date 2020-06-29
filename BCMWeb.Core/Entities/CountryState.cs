@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class CountryState
+    public class CountryState : BaseEntity
     {
         public CountryState()
         {

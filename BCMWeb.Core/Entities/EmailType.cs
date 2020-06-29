@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class EmailType
+    public class EmailType : BaseEntity
     {
         public EmailType()
         {

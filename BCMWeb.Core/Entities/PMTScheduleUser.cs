@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class PMTScheduleUser
+    public class PMTScheduleUser : BaseEntity
     {
         public long PMTScheduleId { get; set; }
         public long UserId { get; set; }

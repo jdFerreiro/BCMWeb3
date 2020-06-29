@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class IncidentSourceCulture
+    public class IncidentSourceCulture : BaseEntity
     {
         public string Culture { get; set; }
         public int IncidentSourceId { get; set; }

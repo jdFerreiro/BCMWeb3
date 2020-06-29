@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class IntitativePriority
+    public class IntitativePriority : BaseEntity
     {
         public IntitativePriority()
         {

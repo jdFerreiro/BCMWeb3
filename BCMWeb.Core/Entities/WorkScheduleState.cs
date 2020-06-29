@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class WorkScheduleState
+    public class WorkScheduleState : BaseEntity
     {
         public WorkScheduleState()
         {

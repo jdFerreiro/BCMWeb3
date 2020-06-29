@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class OriginIncident
+    public class OriginIncident : BaseEntity
     {
         public OriginIncident()
         {

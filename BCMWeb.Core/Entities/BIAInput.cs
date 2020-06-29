@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class BIAInput
+    public class BIAInput : BaseEntity
     {
         public long CompanyId { get; set; }
         public long BIADocumentId { get; set; }

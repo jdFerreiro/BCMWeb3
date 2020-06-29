@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class PMTScheduleDocument
+    public class PMTScheduleDocument : BaseEntity
     {
         public long PMTScheduleId { get; set; }
         public long CompanyId { get; set; }

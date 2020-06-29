@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class IncidentSource
+    public class IncidentSource : BaseEntity
     {
         public IncidentSource()
         {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class WorkSchedule
+    public class WorkSchedule : BaseEntity
     {
         public WorkSchedule()
         {

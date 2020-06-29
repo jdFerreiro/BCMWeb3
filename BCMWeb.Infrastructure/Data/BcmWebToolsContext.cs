@@ -1,4 +1,5 @@
 ﻿using BCMWeb.Core.Entities;
+using BCMWeb.Infrastructure.Data.Configurations;
 using Microsoft.EntityFrameworkCore;
 
 namespace BCMWeb.Infrastructure.Data
@@ -14,1097 +15,203 @@ namespace BCMWeb.Infrastructure.Data
         {
         }
 
-        public virtual DbSet<Audit> TblAuditoria { get; set; }
-        public virtual DbSet<AuditCriticalProcess> TblAuditoriaProcesoCritico { get; set; }
-        public virtual DbSet<BCPDocument> TblBcpdocumento { get; set; }
-        public virtual DbSet<BCPRestartVIPPerson> TblBcpreanudacionPersonaClave { get; set; }
-        public virtual DbSet<BCPRestoreTask> TblBcpreanudacionTarea { get; set; }
-        public virtual DbSet<BCPRestoreTaskActivity> TblBcpreanudacionTareaActividad { get; set; }
-        public virtual DbSet<BCPRestoreKeyPerson> TblBcprecuperacionPersonaClave { get; set; }
-        public virtual DbSet<BCMRecoverResource> TblBcprecuperacionRecurso { get; set; }
-        public virtual DbSet<BCPRestoreAction> TblBcprespuestaAccion { get; set; }
-        public virtual DbSet<BCPAnswerResource> TblBcprespuestaRecurso { get; set; }
-        public virtual DbSet<BCPRestoreKit> TblBcprestauracionEquipo { get; set; }
-        public virtual DbSet<BCPRestoreInfraestructure> TblBcprestauracionInfraestructura { get; set; }
-        public virtual DbSet<BCPRestoreFurniture> TblBcprestauracionMobiliario { get; set; }
-        public virtual DbSet<BCPRestoreOther> TblBcprestauracionOtro { get; set; }
-        public virtual DbSet<BIAThreat> TblBiaamenaza { get; set; }
-        public virtual DbSet<BIAThreatEvent> TblBiaamenazaEvento { get; set; }
-        public virtual DbSet<BIAApp> TblBiaaplicacion { get; set; }
-        public virtual DbSet<BIAServiceChain> TblBiacadenaServicio { get; set; }
-        public virtual DbSet<BIAProcessClient> TblBiaclienteProceso { get; set; }
-        public virtual DbSet<BIAComment> TblBiacomentario { get; set; }
-        public virtual DbSet<BIADocumentation> TblBiadocumentacion { get; set; }
-        public virtual DbSet<BIADocument> TblBiadocumento { get; set; }
-        public virtual DbSet<BIAInput> TblBiaentrada { get; set; }
-        public virtual DbSet<BIAControlEvent> TblBiaeventoControl { get; set; }
-        public virtual DbSet<BIARiskEvent> TblBiaeventoRiesgo { get; set; }
-        public virtual DbSet<BIABigImpact> TblBiagranImpacto { get; set; }
-        public virtual DbSet<BIAFiancialImpact> TblBiaimpactoFinanciero { get; set; }
-        public virtual DbSet<BIAOperationalImpact> TblBiaimpactoOperacional { get; set; }
-        public virtual DbSet<BIAInterdependecy> TblBiainterdependencia { get; set; }
-        public virtual DbSet<BIAMTD> TblBiamtd { get; set; }
-        public virtual DbSet<BIAKeyPerson> TblBiapersonaClave { get; set; }
-        public virtual DbSet<BIAProcessBackupPerson> TblBiapersonaRespaldoProceso { get; set; }
-        public virtual DbSet<BIAProcess> TblBiaproceso { get; set; }
-        public virtual DbSet<BIAAlternateProcess> TblBiaprocesoAlterno { get; set; }
-        public virtual DbSet<BIAProvider> TblBiaproveedor { get; set; }
-        public virtual DbSet<BIAPrimaryBackup> TblBiarespaldoPrimario { get; set; }
-        public virtual DbSet<BIASecondaryBackup> TblBiarespaldoSecundario { get; set; }
-        public virtual DbSet<BIARPO> TblBiarpo { get; set; }
-        public virtual DbSet<BIARTO> TblBiarto { get; set; }
-        public virtual DbSet<TblBiaunidadTrabajo> TblBiaunidadTrabajo { get; set; }
-        public virtual DbSet<BIAWorkUnitPerson> TblBiaunidadTrabajoPersonas { get; set; }
-        public virtual DbSet<BIAWorkUnitProcess> TblBiaunidadTrabajoProceso { get; set; }
-        public virtual DbSet<BIAWRT> TblBiawrt { get; set; }
-        public virtual DbSet<Position> TblCargo { get; set; }
-        public virtual DbSet<City> TblCiudad { get; set; }
-        public virtual DbSet<RiskControl> TblControlRiesgo { get; set; }
-        public virtual DbSet<Criticality> TblCriticidad { get; set; }
-        public virtual DbSet<CityCulture> TblCulturaCiudad { get; set; }
-        public virtual DbSet<CountryStateCulture> TblCulturaEstado { get; set; }
-        public virtual DbSet<DocumentStateCulture> TblCulturaEstadoDocumento { get; set; }
-        public virtual DbSet<CompanyStateCulture> TblCulturaEstadoEmpresa { get; set; }
-        public virtual DbSet<ProcessStateCulture> TblCulturaEstadoProceso { get; set; }
-        public virtual DbSet<UserSateCulture> TblCulturaEstadoUsuario { get; set; }
-        public virtual DbSet<MonthCulture> TblCulturaMes { get; set; }
-        public virtual DbSet<ImpactLevelCulture> TblCulturaNivelImpacto { get; set; }
-        public virtual DbSet<CultureLevelUser> TblCulturaNivelUsuario { get; set; }
-        public virtual DbSet<CountryCulture> TblCulturaPais { get; set; }
-        public virtual DbSet<PPETestStatusCulture> TblCulturaPbepruebaEstatus { get; set; }
-        public virtual DbSet<WorkScheduleStateCulture> TblCulturaPlanTrabajoEstatus { get; set; }
-        public virtual DbSet<PMTScheduleUpdateTypeCulture> TblCulturaPmtprogramacionTipoActualizacion { get; set; }
-        public virtual DbSet<PMTScheduleNotificationTypeCulture> TblCulturaPmtprogramacionTipoNotificacion { get; set; }
-        public virtual DbSet<EmailTypeCulture> TblCulturaTipoCorreo { get; set; }
-        public virtual DbSet<AddressTypeCulture> TblCulturaTipoDireccion { get; set; }
-        public virtual DbSet<FrecuencyTypeCulture> TblCulturaTipoFrecuencia { get; set; }
-        public virtual DbSet<ImpactTypeCulture> TblCulturaTipoImpacto { get; set; }
-        public virtual DbSet<InterdependencyTypeCulture> TblCulturaTipoInterdependencia { get; set; }
-        public virtual DbSet<ResultTypeCulture> TblCulturaTipoRespaldo { get; set; }
-        public virtual DbSet<TestResultTypeCulture> TblCulturaTipoResultadoPrueba { get; set; }
-        public virtual DbSet<TableTypeContentCulture> TblCulturaTipoTablaContenido { get; set; }
-        public virtual DbSet<PhoneTypeCulture> TblCulturaTipoTelefono { get; set; }
-        public virtual DbSet<LocationTypeInformationCulture> TblCulturaTipoUbicacionInformacion { get; set; }
-        public virtual DbSet<IncidentSourceCulture> TblCultureFuenteIncidente { get; set; }
-        public virtual DbSet<OriginIncidentCulture> TblCultureNaturalezaIncidente { get; set; }
-        public virtual DbSet<IncidentTypeCulture> TblCultureTipoIncidente { get; set; }
-        public virtual DbSet<Device> Device { get; set; }
-        public virtual DbSet<Device> TblDispositivo { get; set; }
-        public virtual DbSet<DeviceConnection> TblDispositivoConexion { get; set; }
-        public virtual DbSet<DeviceConsignment> TblDispositivoEnvio { get; set; }
-        public virtual DbSet<Document> TblDocumento { get; set; }
-        public virtual DbSet<DocumentAttachment> TblDocumentoAnexo { get; set; }
-        public virtual DbSet<DocumentApproval> TblDocumentoAprobacion { get; set; }
-        public virtual DbSet<DocumentCertification> TblDocumentoCertificacion { get; set; }
-        public virtual DbSet<DocumentContent> TblDocumentoContenido { get; set; }
-        public virtual DbSet<DocumentInterview> TblDocumentoEntrevista { get; set; }
-        public virtual DbSet<DocumentInterviewPerson> TblDocumentoEntrevistaPersona { get; set; }
-        public virtual DbSet<DocumentKeyPerson> TblDocumentoPersonaClave { get; set; }
-        public virtual DbSet<Company> TblEmpresa { get; set; }
-        public virtual DbSet<CompanyMenuOption> TblEmpresaModulo { get; set; }
-        public virtual DbSet<UserCompany> TblEmpresaUsuario { get; set; }
-        public virtual DbSet<Scale> TblEscala { get; set; }
-        public virtual DbSet<CountryState> TblEstado { get; set; }
-        public virtual DbSet<DocumentState> TblEstadoDocumento { get; set; }
-        public virtual DbSet<CompanyState> TblEstadoEmpresa { get; set; }
-        public virtual DbSet<ProcessState> TblEstadoProceso { get; set; }
-        public virtual DbSet<RiskState> TblEstadoRiesgo { get; set; }
-        public virtual DbSet<UserState> TblEstadoUsuario { get; set; }
-        public virtual DbSet<EmailFormat> TblFormatosEmail { get; set; }
-        public virtual DbSet<IncidentSource> TblFuenteIncidente { get; set; }
-        public virtual DbSet<RiskSource> TblFuenteRiesgo { get; set; }
-        public virtual DbSet<ImpactRisk> TblImpactoRiesgo { get; set; }
-        public virtual DbSet<Incident> TblIncidentes { get; set; }
-        public virtual DbSet<IntitativePriority> TblIniciativaPrioridad { get; set; }
-        public virtual DbSet<Intiative> TblIniciativas { get; set; }
-        public virtual DbSet<IniciativeAttach> TblIniciativasAnexo { get; set; }
-        public virtual DbSet<Location> TblLocalidad { get; set; }
-        public virtual DbSet<Month> TblMes { get; set; }
-        public virtual DbSet<MenuOption> TblModulo { get; set; }
-        public virtual DbSet<MenuAttach> TblModuloAnexo { get; set; }
-        public virtual DbSet<MenuLevelUser> TblModuloNivelUsuario { get; set; }
-        public virtual DbSet<UserMenuOption> TblModuloUsuario { get; set; }
-        public virtual DbSet<OriginIncident> TblNaturalezaIncidente { get; set; }
-        public virtual DbSet<ImpactLevel> TblNivelImpacto { get; set; }
-        public virtual DbSet<UserLevel> TblNivelUsuario { get; set; }
-        public virtual DbSet<Country> TblPais { get; set; }
-        public virtual DbSet<PPETestExecution> TblPbepruebaEjecucion { get; set; }
-        public virtual DbSet<PPETestExecutionExercise> TblPbepruebaEjecucionEjercicio { get; set; }
-        public virtual DbSet<PPETestExecutionExerciseParticipant> TblPbepruebaEjecucionEjercicioParticipante { get; set; }
-        public virtual DbSet<PPETestExecutionExerciseResource> TblPbepruebaEjecucionEjercicioRecurso { get; set; }
-        public virtual DbSet<PPETestExecutionParticipant> TblPbepruebaEjecucionParticipante { get; set; }
-        public virtual DbSet<PPETestExecutionResult> TblPbepruebaEjecucionResultado { get; set; }
-        public virtual DbSet<PPETestStatus> TblPbepruebaEstatus { get; set; }
-        public virtual DbSet<PPETestSchedule> TblPbepruebaPlanificacion { get; set; }
-        public virtual DbSet<PPETestScheduleExercise> TblPbepruebaPlanificacionEjercicio { get; set; }
-        public virtual DbSet<PPETestScheduleExerciseParticipant> TblPbepruebaPlanificacionEjercicioParticipante { get; set; }
-        public virtual DbSet<PPETestScheduleExerciseResource> TblPbepruebaPlanificacionEjercicioRecurso { get; set; }
-        public virtual DbSet<PPETestScheduleParticipant> TblPbepruebaPlanificacionParticipante { get; set; }
-        public virtual DbSet<Person> TblPersona { get; set; }
-        public virtual DbSet<PersonEmail> TblPersonaCorreo { get; set; }
-        public virtual DbSet<PersonAddress> TblPersonaDireccion { get; set; }
-        public virtual DbSet<PersonPhone> TblPersonaTelefono { get; set; }
-        public virtual DbSet<WorkSchedule> TblPlanTrabajo { get; set; }
-        public virtual DbSet<WorkScheduleAction> TblPlanTrabajoAccion { get; set; }
-        public virtual DbSet<WorkScheduleAudit> TblPlanTrabajoAuditoria { get; set; }
-        public virtual DbSet<WorkScheduleState> TblPlanTrabajoEstatus { get; set; }
-        public virtual DbSet<PMTMessageUpdate> TblPmtmensajeActualizacion { get; set; }
-        public virtual DbSet<PMTSchedule> TblPmtprogramacion { get; set; }
-        public virtual DbSet<PMTScheduleDocument> TblPmtprogramacionDocumentos { get; set; }
-        public virtual DbSet<PMTScheduleUpdateType> TblPmtprogramacionTipoActualizacion { get; set; }
-        public virtual DbSet<PMTScheduleNotificationType> TblPmtprogramacionTipoNotificacion { get; set; }
-        public virtual DbSet<PMTScheduleUser> TblPmtprogramacionUsuario { get; set; }
-        public virtual DbSet<PMTUpdateResponsable> TblPmtresponsableUpdate { get; set; }
-        public virtual DbSet<PMTUpdateResponsableEmail> TblPmtresponsableUpdateCorreo { get; set; }
-        public virtual DbSet<PPEFrecuency> TblPpefrecuencia { get; set; }
-        public virtual DbSet<RiskProbability> TblProbabilidadRiesgo { get; set; }
-        public virtual DbSet<Product> TblProducto { get; set; }
-        public virtual DbSet<Provider> TblProveedor { get; set; }
-        public virtual DbSet<RiskSeverity> TblSeveridadRiesgo { get; set; }
-        public virtual DbSet<EmailType> TblTipoCorreo { get; set; }
-        public virtual DbSet<AddressType> TblTipoDireccion { get; set; }
-        public virtual DbSet<ScaleType> TblTipoEscala { get; set; }
-        public virtual DbSet<FrecuencyType> TblTipoFrecuencia { get; set; }
-        public virtual DbSet<ImpactType> TblTipoImpacto { get; set; }
-        public virtual DbSet<IncidentType> TblTipoIncidente { get; set; }
-        public virtual DbSet<InterdependencyType> TblTipoInterdependencia { get; set; }
-        public virtual DbSet<ResultType> TblTipoRespaldo { get; set; }
-        public virtual DbSet<TestResultType> TblTipoResultadoPrueba { get; set; }
-        public virtual DbSet<TableTypeContent> TblTipoTablaContenido { get; set; }
-        public virtual DbSet<PhoneType> TblTipoTelefono { get; set; }
-        public virtual DbSet<LocationTypeInformation> TblTipoUbicacionInformacion { get; set; }
-        public virtual DbSet<OrganizationUnit> TblUnidadOrganizativa { get; set; }
-        public virtual DbSet<User> TblUsuario { get; set; }
-        public virtual DbSet<UserOrganizationUnit> TblUsuarioUnidadOrganizativa { get; set; }
-        public virtual DbSet<VicePresidency> TblVicepresidencia { get; set; }
+        public virtual DbSet<Audit> Audits { get; set; }
+        public virtual DbSet<CriticalProcessAudit> CriticalProcessAudits { get; set; }
+        public virtual DbSet<BCPDocument> BCPDocuments { get; set; }
+        public virtual DbSet<BCPResumptionVIPPerson> BCPResumptionVIPPersons { get; set; }
+        public virtual DbSet<BCPResumptionTask> BCPResumptionTasks { get; set; }
+        public virtual DbSet<BCPResumptionTaskActivity> BCPResumptionTaskActivities { get; set; }
+        public virtual DbSet<BCPRecoveryKeyPerson> BCPRecoveryKeyPersons { get; set; }
+        public virtual DbSet<BCMRecoveryResource> BCMRecoveryResources { get; set; }
+        public virtual DbSet<BCPAnswerAction> BCPAnswerActions { get; set; }
+        public virtual DbSet<BCPAnswerResource> BCPAnswerResources { get; set; }
+        public virtual DbSet<BCPResumptionKit> BCPResumptionKits { get; set; }
+        public virtual DbSet<BCPRestoreInfraestructure> BCPRestoreInfraestructures { get; set; }
+        public virtual DbSet<BCPRestoreFurniture> BCPRestoreFurnitures { get; set; }
+        public virtual DbSet<BCPRestoreOther> BCPRestoreOthers { get; set; }
+        public virtual DbSet<BIAThreat> BIAThreats { get; set; }
+        public virtual DbSet<BIAThreatEvent> BIAThreatEvents { get; set; }
+        public virtual DbSet<BIAApp> BIAApps { get; set; }
+        public virtual DbSet<BIAServiceChain> BIAServiceChains { get; set; }
+        public virtual DbSet<BIAProcessClient> BIAProcessClients { get; set; }
+        public virtual DbSet<BIAComment> BIAComments { get; set; }
+        public virtual DbSet<BIADocumentation> BIADocumentations { get; set; }
+        public virtual DbSet<BIADocument> BIADocuments { get; set; }
+        public virtual DbSet<BIAInput> BIAInputs { get; set; }
+        public virtual DbSet<BIAControlEvent> BIAControlEvents { get; set; }
+        public virtual DbSet<BIARiskEvent> BIARiskEvents { get; set; }
+        public virtual DbSet<BIABigImpact> BIABigImpacts { get; set; }
+        public virtual DbSet<BIAFiancialImpact> BIAFiancialImpacts { get; set; }
+        public virtual DbSet<BIAOperationalImpact> BIAOperationalImpacts { get; set; }
+        public virtual DbSet<BIAInterdependecy> BIAInterdependecies { get; set; }
+        public virtual DbSet<BIAMTD> BIAMTDs { get; set; }
+        public virtual DbSet<BIAKeyPerson> BIAKeyPersons { get; set; }
+        public virtual DbSet<BIAProcessBackupPerson> BIAProcessBackupPersons { get; set; }
+        public virtual DbSet<BIAProcess> BIAProcesses { get; set; }
+        public virtual DbSet<BIAAlternateProcess> BIAAlternateProcesss { get; set; }
+        public virtual DbSet<BIAProvider> BIAProviders { get; set; }
+        public virtual DbSet<BIAPrimaryBackup> BIAPrimaryBackups { get; set; }
+        public virtual DbSet<BIASecondaryBackup> BIASecondaryBackups { get; set; }
+        public virtual DbSet<BIARPO> BIARPOs { get; set; }
+        public virtual DbSet<BIARTO> BIARTOs { get; set; }
+        public virtual DbSet<BIAWorkUnit> BIAWorkUnits { get; set; }
+        public virtual DbSet<BIAWorkUnitPerson> BIAWorkUnitPersons { get; set; }
+        public virtual DbSet<BIAWorkUnitProcess> BIAWorkUnitProcesses { get; set; }
+        public virtual DbSet<BIAWRT> BIAWRTs { get; set; }
+        public virtual DbSet<Position> Positions { get; set; }
+        public virtual DbSet<City> Cities { get; set; }
+        public virtual DbSet<RiskControl> RiskControls { get; set; }
+        public virtual DbSet<Criticality> Criticalities { get; set; }
+        public virtual DbSet<CityCulture> CityCultures { get; set; }
+        public virtual DbSet<CountryStateCulture> CountryStateCultures { get; set; }
+        public virtual DbSet<DocumentStateCulture> DocumentStateCultures { get; set; }
+        public virtual DbSet<CompanyStateCulture> CompanyStateCultures { get; set; }
+        public virtual DbSet<ProcessStateCulture> ProcessStateCultures { get; set; }
+        public virtual DbSet<UserSateCulture> UserSateCultures { get; set; }
+        public virtual DbSet<MonthCulture> MonthCultures { get; set; }
+        public virtual DbSet<ImpactLevelCulture> ImpactLevelCultures { get; set; }
+        public virtual DbSet<CultureLevelUser> CultureLevelUsers { get; set; }
+        public virtual DbSet<CountryCulture> CountryCultures { get; set; }
+        public virtual DbSet<PPETestStatusCulture> PPETestStatusCultures { get; set; }
+        public virtual DbSet<WorkScheduleStateCulture> WorkScheduleStateCultures { get; set; }
+        public virtual DbSet<PMTScheduleUpdateTypeCulture> PMTScheduleUpdateTypeCultures { get; set; }
+        public virtual DbSet<PMTScheduleNotificationTypeCulture> PMTScheduleNotificationTypeCultures { get; set; }
+        public virtual DbSet<EmailTypeCulture> EmailTypeCultures { get; set; }
+        public virtual DbSet<AddressTypeCulture> AddressTypeCultures { get; set; }
+        public virtual DbSet<FrecuencyTypeCulture> FrecuencyTypeCultures { get; set; }
+        public virtual DbSet<ImpactTypeCulture> ImpactTypeCultures { get; set; }
+        public virtual DbSet<InterdependencyTypeCulture> InterdependencyTypeCultures { get; set; }
+        public virtual DbSet<ResultTypeCulture> ResultTypeCultures { get; set; }
+        public virtual DbSet<TestResultTypeCulture> TestResultTypeCultures { get; set; }
+        public virtual DbSet<TableTypeContentCulture> TableTypeContentCultures { get; set; }
+        public virtual DbSet<PhoneTypeCulture> PhoneTypeCultures { get; set; }
+        public virtual DbSet<LocationTypeInformationCulture> LocationTypeInformationCultures { get; set; }
+        public virtual DbSet<IncidentSourceCulture> IncidentSourceCultures { get; set; }
+        public virtual DbSet<OriginIncidentCulture> OriginIncidentCultures { get; set; }
+        public virtual DbSet<IncidentTypeCulture> IncidentTypeCultures { get; set; }
+        public virtual DbSet<Device> Devices { get; set; }
+        public virtual DbSet<DeviceConnection> DeviceConnections { get; set; }
+        public virtual DbSet<DeviceConsignment> DeviceConsignments { get; set; }
+        public virtual DbSet<Document> Documents { get; set; }
+        public virtual DbSet<DocumentAttachment> DocumentAttachments { get; set; }
+        public virtual DbSet<DocumentApproval> DocumentApprovals { get; set; }
+        public virtual DbSet<DocumentCertification> DocumentCertifications { get; set; }
+        public virtual DbSet<DocumentContent> DocumentContents { get; set; }
+        public virtual DbSet<DocumentInterview> DocumentInterviews { get; set; }
+        public virtual DbSet<DocumentInterviewPerson> DocumentInterviewPersons { get; set; }
+        public virtual DbSet<DocumentKeyPerson> DocumentKeyPersons { get; set; }
+        public virtual DbSet<Company> Companies { get; set; }
+        public virtual DbSet<CompanyMenuOption> CompanyMenuOptions { get; set; }
+        public virtual DbSet<UserCompany> UserCompanies { get; set; }
+        public virtual DbSet<Scale> Scales { get; set; }
+        public virtual DbSet<CountryState> CountryStates { get; set; }
+        public virtual DbSet<DocumentState> DocumentStates { get; set; }
+        public virtual DbSet<CompanyState> CompanyStates { get; set; }
+        public virtual DbSet<ProcessState> ProcessStates { get; set; }
+        public virtual DbSet<RiskState> RiskStates { get; set; }
+        public virtual DbSet<UserState> UserStates { get; set; }
+        public virtual DbSet<EmailFormat> EmailFormats { get; set; }
+        public virtual DbSet<IncidentSource> IncidentSources { get; set; }
+        public virtual DbSet<RiskSource> RiskSources { get; set; }
+        public virtual DbSet<ImpactRisk> ImpactRisks { get; set; }
+        public virtual DbSet<Incident> Incidents { get; set; }
+        public virtual DbSet<IntitativePriority> IntitativePrioritiesys { get; set; }
+        public virtual DbSet<Intiative> Intiatives { get; set; }
+        public virtual DbSet<IniciativeAttach> IniciativeAttachs { get; set; }
+        public virtual DbSet<Location> Locations { get; set; }
+        public virtual DbSet<Month> Months { get; set; }
+        public virtual DbSet<MenuOption> MenuOptions { get; set; }
+        public virtual DbSet<MenuAttach> MenuAttachs { get; set; }
+        public virtual DbSet<MenuLevelUser> MenuLevelUsers { get; set; }
+        public virtual DbSet<UserMenuOption> UserMenuOptions { get; set; }
+        public virtual DbSet<OriginIncident> OriginIncidents { get; set; }
+        public virtual DbSet<ImpactLevel> ImpactLevels { get; set; }
+        public virtual DbSet<UserLevel> UserLevels { get; set; }
+        public virtual DbSet<Country> Countries { get; set; }
+        public virtual DbSet<PPETestExecution> PPETestExecutions { get; set; }
+        public virtual DbSet<PPETestExecutionExercise> PPETestExecutionExercises { get; set; }
+        public virtual DbSet<PPETestExecutionExerciseParticipant> PPETestExecutionExerciseParticipants { get; set; }
+        public virtual DbSet<PPETestExecutionExerciseResource> PPETestExecutionExerciseResources { get; set; }
+        public virtual DbSet<PPETestExecutionParticipant> PPETestExecutionParticipants { get; set; }
+        public virtual DbSet<PPETestExecutionResult> PPETestExecutionResults { get; set; }
+        public virtual DbSet<PPETestStatus> PPETestStatuses { get; set; }
+        public virtual DbSet<PPETestSchedule> PPETestSchedules { get; set; }
+        public virtual DbSet<PPETestScheduleExercise> PPETestScheduleExercises { get; set; }
+        public virtual DbSet<PPETestScheduleExerciseParticipant> PPETestScheduleExerciseParticipants { get; set; }
+        public virtual DbSet<PPETestScheduleExerciseResource> PPETestScheduleExerciseResources { get; set; }
+        public virtual DbSet<PPETestScheduleParticipant> PPETestScheduleParticipants { get; set; }
+        public virtual DbSet<Person> Persons { get; set; }
+        public virtual DbSet<PersonEmail> PersonEmails { get; set; }
+        public virtual DbSet<PersonAddress> PersonAddresses { get; set; }
+        public virtual DbSet<PersonPhone> PersonPhones { get; set; }
+        public virtual DbSet<WorkSchedule> WorkSchedules { get; set; }
+        public virtual DbSet<WorkScheduleAction> WorkScheduleActions { get; set; }
+        public virtual DbSet<WorkScheduleAudit> WorkScheduleAudits { get; set; }
+        public virtual DbSet<WorkScheduleState> WorkScheduleStates { get; set; }
+        public virtual DbSet<PMTMessageUpdate> PMTMessageUpdates { get; set; }
+        public virtual DbSet<PMTSchedule> PMTSchedules { get; set; }
+        public virtual DbSet<PMTScheduleDocument> PMTScheduleDocuments { get; set; }
+        public virtual DbSet<PMTScheduleUpdateType> PMTScheduleUpdateTypes { get; set; }
+        public virtual DbSet<PMTScheduleNotificationType> PMTScheduleNotificationTypes { get; set; }
+        public virtual DbSet<PMTScheduleUser> PMTScheduleUsers { get; set; }
+        public virtual DbSet<PMTUpdateResponsable> PMTUpdateResponsables { get; set; }
+        public virtual DbSet<PMTUpdateResponsableEmail> PMTUpdateResponsableEmails { get; set; }
+        public virtual DbSet<PPEFrecuency> PPEFrecuencies { get; set; }
+        public virtual DbSet<RiskProbability> RiskProbabilities { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Provider> Providers { get; set; }
+        public virtual DbSet<RiskSeverity> RiskSeverities { get; set; }
+        public virtual DbSet<EmailType> EmailTypes { get; set; }
+        public virtual DbSet<AddressType> AddressTypes { get; set; }
+        public virtual DbSet<ScaleType> ScaleTypes { get; set; }
+        public virtual DbSet<FrecuencyType> FrecuencyTypes { get; set; }
+        public virtual DbSet<ImpactType> ImpactTypes { get; set; }
+        public virtual DbSet<IncidentType> IncidentTypes { get; set; }
+        public virtual DbSet<InterdependencyType> InterdependencyTypes { get; set; }
+        public virtual DbSet<ResultType> ResultTypes { get; set; }
+        public virtual DbSet<TestResultType> TestResultTypes { get; set; }
+        public virtual DbSet<TableTypeContent> TableTypeContents { get; set; }
+        public virtual DbSet<PhoneType> PhoneTypes { get; set; }
+        public virtual DbSet<LocationTypeInformation> LocationTypeInformations { get; set; }
+        public virtual DbSet<OrganizationUnit> OrganizationUnits { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<UserOrganizationUnit> UserOrganizationUnits { get; set; }
+        public virtual DbSet<VicePresidency> VicePresidenciess { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Audit>(entity =>
-            {
-                entity.HasKey(e => e.AuditId);
-
-                entity.ToTable("tblAuditoria");
-
-                entity.HasIndex(e => e.CompanyId)
-                    .HasName("IX_FK_tblEmpresa_tblAuditoria_FK1");
-
-                entity.HasIndex(e => e.UserId)
-                    .HasName("IX_FK_tblUsuario_tblAuditoria_FK1");
-
-                entity.HasIndex(e => new { e.CompanyId, e.DocumentId, e.DocumentTypeId })
-                    .HasName("IX_FK_tblAuditoria_tblDocumento");
-
-                entity.Property(e => e.Action)
-                    .IsRequired()
-                    .HasMaxLength(450);
-
-                entity.Property(e => e.IPAddress)
-                    .IsRequired()
-                    .HasColumnName("DireccionIP")
-                    .HasMaxLength(250);
-
-                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
-
-                entity.Property(e => e.Message)
-                    .IsRequired()
-                    .HasMaxLength(450);
-
-                entity.HasOne(d => d.CompanyInfo)
-                    .WithMany(p => p.Audits)
-                    .HasForeignKey(d => d.CompanyId)
-                    .HasConstraintName("FK_tblEmpresa_tblAuditoria_FK1");
-
-                entity.HasOne(d => d.UserInfo)
-                    .WithMany(p => p.Audits)
-                    .HasForeignKey(d => d.UserId)
-                    .HasConstraintName("FK_tblUsuario_tblAuditoria_FK1");
-
-                entity.HasOne(d => d.DocumentInfo)
-                    .WithMany(p => p.Audits)
-                    .HasForeignKey(d => new { d.CompanyId, d.DocumentId, d.DocumentTypeId })
-                    .HasConstraintName("FK_tblAuditoria_tblDocumento");
-            });
-
-            modelBuilder.Entity<AuditCriticalProcess>(entity =>
-            {
-                entity.HasKey(e => new { e.ProcessId, e.AuditCriticalProcessId });
-
-                entity.ToTable("tblAuditoriaProcesoCritico");
-
-                entity.HasIndex(e => e.CompanyId)
-                    .HasName("IX_FK_tblAuditoriaProcesoCritico_tblEmpresa");
-
-                entity.Property(e => e.AuditCriticalProcessId).ValueGeneratedOnAdd();
-
-                entity.Property(e => e.LastUpdate).HasColumnType("datetime");
-
-                entity.HasOne(d => d.CompanyInfo)
-                    .WithMany(p => p.CriticalProcessAudit)
-                    .HasForeignKey(d => d.CompanyId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tblAuditoriaProcesoCritico_tblEmpresa");
-
-                entity.HasOne(d => d.UserInfo)
-                    .WithMany(p => p.CriticalProcessAudit)
-                    .HasForeignKey(d => d.UserId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tblAuditoriaProcesoCritico_tblUsuario");
-            });
-
-            modelBuilder.Entity<BCPDocument>(entity =>
-            {
-                entity.HasKey(e => new { e.CompanyId, e.BCPDocumentId });
-
-                entity.ToTable("tblBCPDocumento");
-
-                entity.HasIndex(e => new { e.CompanyId, e.DocumentId, e.DocumentTypeId })
-                    .HasName("IX_FK_tblBCPDocumento_tblDocumento");
-
-                entity.HasIndex(e => new { e.CompanyId, e.BIADocumentId, e.ProcessId })
-                    .HasName("IX_FK_tblBCPDocumento_tblBIAProceso");
-
-                entity.Property(e => e.BCPDocumentId)
-                    .HasColumnName("IdDocumentoBCP")
-                    .ValueGeneratedOnAdd();
-
-                entity.Property(e => e.BIADocumentId).HasColumnName("IdDocumentoBIA");
-
-                entity.Property(e => e.ProcessName).HasMaxLength(500);
-
-                entity.Property(e => e.ResponsabileName).HasMaxLength(500);
-
-                entity.Property(e => e.SubprocessName).HasMaxLength(500);
-
-                entity.HasOne(d => d.CompanyInfo)
-                    .WithMany(p => p.BCPDocs)
-                    .HasForeignKey(d => d.CompanyId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tblEmpresa_tblBCPDocumento_FK1");
-
-                entity.HasOne(d => d.DocumentInfo)
-                    .WithMany(p => p.BCPDocs)
-                    .HasForeignKey(d => new { d.CompanyId, d.DocumentId, d.DocumentTypeId })
-                    .HasConstraintName("FK_tblBCPDocumento_tblDocumento");
-
-                entity.HasOne(d => d.BIAProcessInfo)
-                    .WithMany(p => p.BCPDocuments)
-                    .HasForeignKey(d => new { d.CompanyId, d.BIADocumentId, d.ProcessId })
-                    .OnDelete(DeleteBehavior.Cascade)
-                    .HasConstraintName("FK_tblBCPDocumento_tblBIAProceso");
-            });
-
-            modelBuilder.Entity<BCPRestartVIPPerson>(entity =>
-            {
-                entity.HasKey(e => new { e.CompanyId, e.BCPDocumentId, e.PersonId });
-
-                entity.ToTable("tblBCPReanudacionPersonaClave");
-
-                entity.HasIndex(e => new { e.CompanyId, e.ChiefKeyPersonId })
-                    .HasName("IX_FK_tblPersona_tblReanudacionPersonaClave_FK1");
-
-                entity.Property(e => e.BCPDocumentId).HasColumnName("IdDocumentoBCP");
-
-                entity.Property(e => e.PersonId).ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Activity)
-                    .IsRequired()
-                    .HasMaxLength(450);
-
-                entity.Property(e => e.IdentificationDocument)
-                    .IsRequired()
-                    .HasMaxLength(450);
-
-                entity.Property(e => e.Email)
-                    .IsRequired()
-                    .HasMaxLength(450);
-
-                entity.Property(e => e.HomeAddress).IsRequired();
-
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasMaxLength(450);
-
-                entity.Property(e => e.MobilePhoneNumber)
-                    .IsRequired()
-                    .HasMaxLength(450);
-
-                entity.Property(e => e.HomePhoneNumber)
-                    .IsRequired()
-                    .HasMaxLength(450);
-
-                entity.Property(e => e.OfficePhoneNumber)
-                    .IsRequired()
-                    .HasMaxLength(450);
-
-                entity.HasOne(d => d.BCPDocumentInfo)
-                    .WithMany(p => p.BCPRestartVIPPersons)
-                    .HasForeignKey(d => new { d.CompanyId, d.BCPDocumentId })
-                    .HasConstraintName("FK_tblBCPDocumento_tblBCPReanudacionPersonaClave_FK1");
-
-                entity.HasOne(d => d.PersonInfo)
-                    .WithMany(p => p.BPERestartVIPPersons)
-                    .HasForeignKey(d => new { d.CompanyId, d.ChiefKeyPersonId })
-                    .HasConstraintName("FK_tblPersona_tblReanudacionPersonaClave_FK1");
-            });
-
-            modelBuilder.Entity<BCPRestoreTask>(entity =>
-            {
-                entity.HasKey(e => new { e.CompanyId, e.BCPDocumentId, e.BCPRestoreTaskId });
-
-                entity.ToTable("tblBCPReanudacionTarea");
-
-                entity.Property(e => e.BCPDocumentId).HasColumnName("IdDocumentoBCP");
-
-                entity.Property(e => e.BCPRestoreTaskId)
-                    .HasColumnName("IdBCPReanudacionTarea")
-                    .ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasMaxLength(450);
-
-                entity.HasOne(d => d.BCPDocument)
-                    .WithMany(p => p.BCPRestartTasks)
-                    .HasForeignKey(d => new { d.CompanyId, d.BCPDocumentId })
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tblBCPDocumento_tblBCPReanudacionTarea_FK1");
-            });
-
-            modelBuilder.Entity<BCPRestoreTaskActivity>(entity =>
-            {
-                entity.HasKey(e => new { e.CompanyId, e.BCPDocumentId, e.BCPRestoreTaskId, e.BCPRestoreTaskActivityId });
-
-                entity.ToTable("tblBCPReanudacionTareaActividad");
-
-                entity.Property(e => e.BCPDocumentId).HasColumnName("IdDocumentoBCP");
-
-                entity.Property(e => e.BCPRestoreTaskId).HasColumnName("IdBCPReanudacionTarea");
-
-                entity.Property(e => e.BCPRestoreTaskActivityId)
-                    .HasColumnName("IdBCPReanudacionTareaActividad")
-                    .ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Description).IsRequired();
-
-                entity.HasOne(d => d.BCPRestoreTaskInfo)
-                    .WithMany(p => p.BCPRestoreTaskActivities)
-                    .HasForeignKey(d => new { d.CompanyId, d.BCPDocumentId, d.BCPRestoreTaskId })
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tblBCPReanudacionTarea_tblBCPReanudacionTareaActividad_FK1");
-            });
-
-            modelBuilder.Entity<BCPRestoreKeyPerson>(entity =>
-            {
-                entity.HasKey(e => new { e.CompanyId, e.BCPDocumentId, e.PersonId });
-
-                entity.ToTable("tblBCPRecuperacionPersonaClave");
-
-                entity.HasIndex(e => new { e.CompanyId, e.ChiefKeyPersonalId })
-                    .HasName("IX_FK_tblPersona_tblBCPRecuperacionPersonaClave_FK1");
-
-                entity.Property(e => e.BCPDocumentId).HasColumnName("IdDocumentoBCP");
-
-                entity.Property(e => e.PersonId).ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Activity)
-                    .IsRequired()
-                    .HasMaxLength(450);
-
-                entity.Property(e => e.GovermentDocumentId)
-                    .IsRequired()
-                    .HasMaxLength(450);
-
-                entity.Property(e => e.Email)
-                    .IsRequired()
-                    .HasMaxLength(450);
-
-                entity.Property(e => e.RoomAddress).IsRequired();
-
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasMaxLength(450);
-
-                entity.Property(e => e.MobilePhoneNumber)
-                    .IsRequired()
-                    .HasMaxLength(450);
-
-                entity.Property(e => e.HomePhoneNumber)
-                    .IsRequired()
-                    .HasMaxLength(450);
-
-                entity.Property(e => e.OfficePhoneNumber)
-                    .IsRequired()
-                    .HasMaxLength(450);
-
-                entity.HasOne(d => d.BCPDocumentInfo)
-                    .WithMany(p => p.BCPRestartKeyPersons)
-                    .HasForeignKey(d => new { d.CompanyId, d.BCPDocumentId })
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tblBCPDocumento_tblBCPRecuperacionPersonaClave_FK1");
-
-                entity.HasOne(d => d.PersonInfo)
-                    .WithMany(p => p.BCPRecoverVIPPersons)
-                    .HasForeignKey(d => new { d.CompanyId, d.ChiefKeyPersonalId })
-                    .HasConstraintName("FK_tblPersona_tblBCPRecuperacionPersonaClave_FK1");
-            });
-
-            modelBuilder.Entity<BCMRecoverResource>(entity =>
-            {
-                entity.HasKey(e => new { e.CompanyId, e.BCPDocumentId, e.RecoverResourceId });
-
-                entity.ToTable("tblBCPRecuperacionRecurso");
-
-                entity.Property(e => e.BCPDocumentId).HasColumnName("IdDocumentoBCP");
-
-                entity.Property(e => e.RecoverResourceId).ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasMaxLength(250);
-
-                entity.HasOne(d => d.BCPDocumentInfo)
-                    .WithMany(p => p.BCPRestartResources)
-                    .HasForeignKey(d => new { d.CompanyId, d.BCPDocumentId })
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tblBCPDocumento_tblBCPRecuperacionRecurso_FK1");
-            });
-
-            modelBuilder.Entity<BCPRestoreAction>(entity =>
-            {
-                entity.HasKey(e => new { e.CompanyId, e.BCPDocumentId, e.BCPAnswerActionId });
-
-                entity.ToTable("tblBCPRespuestaAccion");
-
-                entity.Property(e => e.BCPDocumentId).HasColumnName("IdDocumentoBCP");
-
-                entity.Property(e => e.BCPAnswerActionId)
-                    .HasColumnName("IdBCPRespuestaAccion")
-                    .ValueGeneratedOnAdd();
-
-                entity.Property(e => e.ScaleName)
-                    .IsRequired()
-                    .HasMaxLength(250);
-
-                entity.HasOne(d => d.BCPDocumentInfo)
-                    .WithMany(p => p.BCPAnswerActions)
-                    .HasForeignKey(d => new { d.CompanyId, d.BCPDocumentId })
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tblBCPRespuestaAccion_tblBCPDocumento");
-            });
-
-            modelBuilder.Entity<BCPAnswerResource>(entity =>
-            {
-                entity.HasKey(e => new { e.CompanyId, e.BCPDocumentId, e.BCPAnswerResourceId });
-
-                entity.ToTable("tblBCPRespuestaRecurso");
-
-                entity.Property(e => e.BCPDocumentId).HasColumnName("IdDocumentoBCP");
-
-                entity.Property(e => e.BCPAnswerResourceId).ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasMaxLength(250);
-
-                entity.HasOne(d => d.BCPDocuments)
-                    .WithMany(p => p.BCPAnswerResources)
-                    .HasForeignKey(d => new { d.CompanyId, d.BCPDocumentId })
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tblBCPDocumento_tblBCPRespuestaRecurso_FK1");
-            });
-
-            modelBuilder.Entity<BCPRestoreKit>(entity =>
-            {
-                entity.HasKey(e => new { e.CompanyId, e.BCPDocumentId, e.BCPRestoreKitId });
-
-                entity.ToTable("tblBCPRestauracionEquipo");
-
-                entity.Property(e => e.BCPDocumentId).HasColumnName("IdDocumentoBCP");
-
-                entity.Property(e => e.BCPRestoreKitId)
-                    .HasColumnName("IdBCPRestauracionEquipo")
-                    .ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Description)
-                    .IsRequired()
-                    .HasMaxLength(450);
-
-                entity.HasOne(d => d.BCPDocumentInfo)
-                    .WithMany(p => p.BCPRestoreKits)
-                    .HasForeignKey(d => new { d.CompanyId, d.BCPDocumentId })
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tblBCPDocumento_tblBCPRestauracionEquipo_FK1");
-            });
-
-            modelBuilder.Entity<BCPRestoreInfraestructure>(entity =>
-            {
-                entity.HasKey(e => new { e.CompanyId, e.BCPDocumentId, e.BCPRestoreInfraestructureId });
-
-                entity.ToTable("tblBCPRestauracionInfraestructura");
-
-                entity.Property(e => e.BCPDocumentId).HasColumnName("IdDocumentoBCP");
-
-                entity.Property(e => e.BCPRestoreInfraestructureId)
-                    .HasColumnName("IdBCPRestauracionInfraestructura")
-                    .ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Description)
-                    .IsRequired()
-                    .HasMaxLength(450);
-
-                entity.HasOne(d => d.BCPDocumentInfo)
-                    .WithMany(p => p.BCPRestoreInfrastructures)
-                    .HasForeignKey(d => new { d.CompanyId, d.BCPDocumentId })
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tblBCPDocumento_tblBCPRestauracionInfraestructura_FK1");
-            });
-
-            modelBuilder.Entity<BCPRestoreFurniture>(entity =>
-            {
-                entity.HasKey(e => new { e.CompanyId, e.BCPDocumentId, e.BCPRestoreFurnitureId });
-
-                entity.ToTable("tblBCPRestauracionMobiliario");
-
-                entity.Property(e => e.BCPDocumentId).HasColumnName("IdDocumentoBCP");
-
-                entity.Property(e => e.BCPRestoreFurnitureId).ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Description)
-                    .IsRequired()
-                    .HasMaxLength(450);
-
-                entity.HasOne(d => d.BCPDocumentInfo)
-                    .WithMany(p => p.BCPRestoreFurnitures)
-                    .HasForeignKey(d => new { d.CompanyId, d.BCPDocumentId })
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tblBCPDocumento_tblBCPRestauracionMobiliario_FK1");
-            });
-
-            modelBuilder.Entity<BCPRestoreOther>(entity =>
-            {
-                entity.HasKey(e => new { e.CompanyId, e.BCPDocumentId, e.BCPRestoreOtherId });
-
-                entity.ToTable("tblBCPRestauracionOtro");
-
-                entity.Property(e => e.BCPDocumentId).HasColumnName("IdDocumentoBCP");
-
-                entity.Property(e => e.BCPRestoreOtherId)
-                    .HasColumnName("IdBCPRestauracionOtro")
-                    .ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Description)
-                    .IsRequired()
-                    .HasMaxLength(450)
-                    .IsUnicode(false);
-
-                entity.HasOne(d => d.BCPDocumentInfo)
-                    .WithMany(p => p.BCPRestoreOthers)
-                    .HasForeignKey(d => new { d.CompanyId, d.BCPDocumentId })
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tblBCPDocumento_tblBCPRestauracionOtro_FK1");
-            });
-
-            modelBuilder.Entity<BIAThreat>(entity =>
-            {
-                entity.HasKey(e => new { e.CompanyId, e.DocumentId, e.ProcessId, e.ThreatId });
-
-                entity.ToTable("tblBIAAmenaza");
-
-                entity.HasIndex(e => new { e.CompanyId, e.ControlValue })
-                    .HasName("IX_FK_tblBIAAmenaza_tblControlRiesgo");
-
-                entity.HasIndex(e => new { e.CompanyId, e.StateValue })
-                    .HasName("IX_FK_tblBIAAmenaza_tblEstadoRiesgo");
-
-                entity.HasIndex(e => new { e.CompanyId, e.SourceValue })
-                    .HasName("IX_FK_tblBIAAmenaza_tblFuenteRiesgo");
-
-                entity.HasIndex(e => new { e.CompanyId, e.ImpactValue })
-                    .HasName("IX_FK_tblBIAAmenaza_tblImpactoRiesgo");
-
-                entity.HasIndex(e => new { e.CompanyId, e.ProbabilityValue })
-                    .HasName("IX_FK_tblBIAAmenaza_tblProbabilidadRiesgo");
-
-                entity.HasIndex(e => new { e.CompanyId, e.SeverityValue })
-                    .HasName("IX_FK_tblBIAAmenaza_tblSeveridadRiesgo");
-
-                entity.HasIndex(e => new { e.CompanyId, e.DocumentId, e.DocumentTypeId })
-                    .HasName("IX_FK_tblBIAAmenaza_tblDocumento");
-
-                entity.HasIndex(e => new { e.CompanyId, e.BIADocumentId, e.ProcessId })
-                    .HasName("IX_FK_tblBIAAmenaza_tblBIAProceso");
-
-                entity.Property(e => e.ThreatId).ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Description).IsRequired();
-
-                entity.Property(e => e.SourceValue)
-                    .HasMaxLength(1)
-                    .IsUnicode(false)
-                    .IsFixedLength();
-
-                entity.Property(e => e.BIADocumentId).HasColumnName("IdDocumentoBIA");
-
-                entity.HasOne(d => d.RiskControlInfo)
-                    .WithMany(p => p.BIAThreats)
-                    .HasForeignKey(d => new { d.CompanyId, d.ControlValue })
-                    .HasConstraintName("FK_tblBIAAmenaza_tblControlRiesgo");
-
-                entity.HasOne(d => d.RiskStateInfo)
-                    .WithMany(p => p.BIAThreats)
-                    .HasForeignKey(d => new { d.CompanyId, d.StateValue })
-                    .HasConstraintName("FK_tblBIAAmenaza_tblEstadoRiesgo");
-
-                entity.HasOne(d => d.RiskSourceInfo)
-                    .WithMany(p => p.BIAThreats)
-                    .HasForeignKey(d => new { d.CompanyId, d.SourceValue })
-                    .HasConstraintName("FK_tblBIAAmenaza_tblFuenteRiesgo");
-
-                entity.HasOne(d => d.RiskImpactInfo)
-                    .WithMany(p => p.BIAThreats)
-                    .HasForeignKey(d => new { d.CompanyId, d.ImpactValue })
-                    .HasConstraintName("FK_tblBIAAmenaza_tblImpactoRiesgo");
-
-                entity.HasOne(d => d.RiskProbabilityInfo)
-                    .WithMany(p => p.BIAThreats)
-                    .HasForeignKey(d => new { d.CompanyId, d.ProbabilityValue })
-                    .HasConstraintName("FK_tblBIAAmenaza_tblProbabilidadRiesgo");
-
-                entity.HasOne(d => d.RiskSeverityInfo)
-                    .WithMany(p => p.BIAThreats)
-                    .HasForeignKey(d => new { d.CompanyId, d.SeverityValue })
-                    .HasConstraintName("FK_tblBIAAmenaza_tblSeveridadRiesgo");
-
-                entity.HasOne(d => d.DocumentInfo)
-                    .WithMany(p => p.BIAThreats)
-                    .HasForeignKey(d => new { d.CompanyId, d.DocumentId, d.DocumentTypeId })
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tblBIAAmenaza_tblDocumento");
-
-                entity.HasOne(d => d.BIAProcessInfo)
-                    .WithMany(p => p.BIAThreats)
-                    .HasForeignKey(d => new { d.CompanyId, d.BIADocumentId, d.ProcessId })
-                    .HasConstraintName("FK_tblBIAAmenaza_tblBIAProceso");
-            });
-
-            modelBuilder.Entity<BIAThreatEvent>(entity =>
-            {
-                entity.HasKey(e => new { e.CompanyId, e.BIADocumentId, e.ProcessId, e.ThreatId, e.ThreatEventId });
-
-                entity.ToTable("tblBIAAmenazaEvento");
-
-                entity.Property(e => e.BIADocumentId).HasColumnName("IdDocumentoBIA");
-
-                entity.Property(e => e.ThreatEventId).ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Name).IsRequired();
-            });
-
-            modelBuilder.Entity<BIAApp>(entity =>
-            {
-                entity.HasKey(e => new { e.CompanyId, e.BIADocumentId, e.ProcessId, e.AppId });
-
-                entity.ToTable("tblBIAAplicacion");
-
-                entity.Property(e => e.BIADocumentId).HasColumnName("IdDocumentoBIA");
-
-                entity.Property(e => e.AppId).ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Name).IsRequired();
-
-                entity.Property(e => e.User).IsRequired();
-
-                entity.HasOne(d => d.BIAProcessInfo)
-                    .WithMany(p => p.BIAApps)
-                    .HasForeignKey(d => new { d.CompanyId, d.BIADocumentId, d.ProcessId })
-                    .HasConstraintName("FK_tblBIAAplicacion_tblBIAProceso");
-            });
-
-            modelBuilder.Entity<BIAServiceChain>(entity =>
-            {
-                entity.HasKey(e => new { e.CompanyId, e.ServiceChainId });
-
-                entity.ToTable("tblBIACadenaServicio");
-
-                entity.Property(e => e.Description)
-                    .IsRequired()
-                    .HasMaxLength(500);
-
-                entity.HasOne(d => d.CompanyInfo)
-                    .WithMany(p => p.BIAServiceChains)
-                    .HasForeignKey(d => d.CompanyId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tblBIACadenaServicio_tblEmpresa");
-            });
-
-            modelBuilder.Entity<BIAProcessClient>(entity =>
-            {
-                entity.HasKey(e => new { e.CompanyId, e.BIADocumentId, e.ProcessId, e.ProcessClientId });
-
-                entity.ToTable("tblBIAClienteProceso");
-
-                entity.Property(e => e.BIADocumentId).HasColumnName("IdDocumentoBIA");
-
-                entity.Property(e => e.ProcessClientId).ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Process).IsRequired();
-
-                entity.Property(e => e.Product).IsRequired();
-
-                entity.Property(e => e.Responsable).IsRequired();
-
-                entity.Property(e => e.Unit).IsRequired();
-
-                entity.HasOne(d => d.BIAProcessInfo)
-                    .WithMany(p => p.BIAProcessClients)
-                    .HasForeignKey(d => new { d.CompanyId, d.BIADocumentId, d.ProcessId })
-                    .HasConstraintName("FK_tblBIAClienteProducto_tblBIAProceso");
-            });
-
-            modelBuilder.Entity<BIAComment>(entity =>
-            {
-                entity.HasKey(e => new { e.CompanyId, e.BIADocumentId, e.CommentId });
-
-                entity.ToTable("tblBIAComentario");
-
-                entity.Property(e => e.CommentId).ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Description).IsRequired();
-
-                entity.HasOne(d => d.BIADocumentInfo)
-                    .WithMany(p => p.BIAComments)
-                    .HasForeignKey(d => new { d.CompanyId, d.BIADocumentId })
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tblBIAComentario_tblBIADocumento");
-            });
-
-            modelBuilder.Entity<BIADocumentation>(entity =>
-            {
-                entity.HasKey(e => new { e.CompanyId, e.BIADocumentId, e.ProcessId, e.DocumentId });
-
-                entity.ToTable("tblBIADocumentacion");
-
-                entity.Property(e => e.BIADocumentId).HasColumnName("IdDocumentoBIA");
-
-                entity.Property(e => e.DocumentId).ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Name).IsRequired();
-
-                entity.Property(e => e.Location).IsRequired();
-
-                entity.HasOne(d => d.BIAPRocessInfo)
-                    .WithMany(p => p.BIADocs)
-                    .HasForeignKey(d => new { d.CompanyId, d.BIADocumentId, d.ProcessId })
-                    .HasConstraintName("FK_tblBIADocumentacion_tblBIAProceso");
-            });
-
-            modelBuilder.Entity<BIADocument>(entity =>
-            {
-                entity.HasKey(e => new { e.CompanyId, e.BIADocumentId });
-
-                entity.ToTable("tblBIADocumento");
-
-                entity.HasIndex(e => new { e.CompanyId, e.OUId })
-                    .HasName("IX_FK_tblBIADocumento_tblUnidadOrganizativa");
-
-                entity.HasIndex(e => new { e.CompanyId, e.DocumentId, e.DocumentTypeId })
-                    .HasName("IX_FK_tblDocumento_tblBIADocumento");
-
-                entity.Property(e => e.BIADocumentId)
-                    .HasColumnName("IdDocumentoBIA")
-                    .ValueGeneratedOnAdd();
-
-                entity.HasOne(d => d.CompanyInfo)
-                    .WithMany(p => p.BIADocs)
-                    .HasForeignKey(d => d.CompanyId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tblEmpresa_tblBIADocumento_FK1");
-
-                entity.HasOne(d => d.OUInfo)
-                    .WithMany(p => p.BIADocuments)
-                    .HasForeignKey(d => new { d.CompanyId, d.OUId })
-                    .HasConstraintName("FK_tblBIADocumento_tblUnidadOrganizativa");
-
-                entity.HasOne(d => d.DocumentInfo)
-                    .WithMany(p => p.BiaDocs)
-                    .HasForeignKey(d => new { d.CompanyId, d.DocumentId, d.DocumentTypeId })
-                    .HasConstraintName("FK_tblDocumento_tblBIADocumento");
-            });
-
-            modelBuilder.Entity<BIAInput>(entity =>
-            {
-                entity.HasKey(e => new { e.CompanyId, e.BIADocumentId, e.ProcessId, e.InputId });
-
-                entity.ToTable("tblBIAEntrada");
-
-                entity.Property(e => e.BIADocumentId).HasColumnName("IdDocumentoBIA");
-
-                entity.Property(e => e.InputId).ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Event).IsRequired();
-
-                entity.Property(e => e.Responsable).IsRequired();
-
-                entity.Property(e => e.Unit).IsRequired();
-
-                entity.HasOne(d => d.BIAProcessInfo)
-                    .WithMany(p => p.BIAInputs)
-                    .HasForeignKey(d => new { d.CompanyId, d.BIADocumentId, d.ProcessId })
-                    .HasConstraintName("FK_tblBIAEntrada_tblBIAProceso");
-            });
-
-            modelBuilder.Entity<BIAControlEvent>(entity =>
-            {
-                entity.HasKey(e => new { e.CompanyId, e.BIADocumentId, e.ProcessId, e.ThreatId, e.ThreatEventId, e.ControlEventId });
-
-                entity.ToTable("tblBIAEventoControl");
-
-                entity.Property(e => e.BIADocumentId).HasColumnName("IdDocumentoBIA");
-
-                entity.Property(e => e.ControlEventId).ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Description).IsRequired();
-
-                entity.HasOne(d => d.BIAThreatEvent)
-                    .WithMany(p => p.BIAControlEvents)
-                    .HasForeignKey(d => new { d.CompanyId, d.BIADocumentId, d.ProcessId, d.ThreatId, d.ThreatEventId })
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tblBIAEventoControl_tblBIAAmenazaEvento");
-            });
-
-            modelBuilder.Entity<BIARiskEvent>(entity =>
-            {
-                entity.HasKey(e => new { e.RiskEventId, e.CompanyId });
-
-                entity.ToTable("tblBIAEventoRiesgo");
-
-                entity.Property(e => e.RiskEventId).ValueGeneratedOnAdd();
-            });
-
-            modelBuilder.Entity<BIABigImpact>(entity =>
-            {
-                entity.HasKey(e => new { e.CompanyId, e.BIADocumentId, e.ProcessId, e.BigImpactId, e.MonthId });
-
-                entity.ToTable("tblBIAGranImpacto");
-
-                entity.HasIndex(e => e.MonthId)
-                    .HasName("IX_FK_tblBIAGranImpacto_tblMes");
-
-                entity.Property(e => e.BIADocumentId).HasColumnName("IdDocumentoBIA");
-
-                entity.Property(e => e.BigImpactId).ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Explain).IsRequired();
-
-                entity.Property(e => e.Comments)
-                    .IsRequired()
-                    .HasMaxLength(450);
-
-                entity.HasOne(d => d.MonthInfo)
-                    .WithMany(p => p.BIABigImpact)
-                    .HasForeignKey(d => d.MonthId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tblBIAGranImpacto_tblMes");
-
-                entity.HasOne(d => d.BIAProcessInfo)
-                    .WithMany(p => p.BIABigImpacts)
-                    .HasForeignKey(d => new { d.CompanyId, d.BIADocumentId, d.ProcessId })
-                    .HasConstraintName("FK_tblBIAGranImpacto_tblBIAProceso");
-            });
-
-            modelBuilder.Entity<BIAFiancialImpact>(entity =>
-            {
-                entity.HasKey(e => new { e.CompanyId, e.BIADocumentId, e.ProcessId, e.FinancialImpactId });
-
-                entity.ToTable("tblBIAImpactoFinanciero");
-
-                entity.HasIndex(e => e.FrecuencyTypeId)
-                    .HasName("IX_FK_tblBIAImpactoFinanciero_tblTipoFrecuencia");
-
-                entity.HasIndex(e => new { e.CompanyId, e.ScaleId })
-                    .HasName("IX_FK_tblBIAImpactoFinanciero_tblEscala");
-
-                entity.Property(e => e.BIADocumentId).HasColumnName("IdDocumentoBIA");
-
-                entity.Property(e => e.FinancialImpactId).ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Description).IsRequired();
-
-                entity.Property(e => e.Impact).IsRequired();
-
-                entity.Property(e => e.TimeUnit).HasMaxLength(450);
-
-                entity.HasOne(d => d.FrecuencyTypeInfo)
-                    .WithMany(p => p.BIAFinancialImpacts)
-                    .HasForeignKey(d => d.FrecuencyTypeId)
-                    .HasConstraintName("FK_tblBIAImpactoFinanciero_tblTipoFrecuencia");
-
-                entity.HasOne(d => d.ScaleInfo)
-                    .WithMany(p => p.BIAFinancialImpacts)
-                    .HasForeignKey(d => new { d.CompanyId, d.ScaleId })
-                    .HasConstraintName("FK_tblBIAImpactoFinanciero_tblEscala");
-
-                entity.HasOne(d => d.BIAProcessInfo)
-                    .WithMany(p => p.BIAFinancialImpacts)
-                    .HasForeignKey(d => new { d.CompanyId, d.BIADocumentId, d.ProcessId })
-                    .HasConstraintName("FK_tblBIAImpactoFinanciero_tblBIAProceso");
-            });
-
-            modelBuilder.Entity<BIAOperationalImpact>(entity =>
-            {
-                entity.HasKey(e => new { e.CompanyId, e.BIADocumentId, e.ProcessId, e.OperationalImpactId });
-
-                entity.ToTable("tblBIAImpactoOperacional");
-
-                entity.HasIndex(e => e.FrecuencyTypeId)
-                    .HasName("IX_FK_tblBIAImpactoOperacional_tblTipoFrecuencia");
-
-                entity.HasIndex(e => new { e.CompanyId, e.ScaleId })
-                    .HasName("IX_FK_tblBIAImpactoOperacional_tblEscala");
-
-                entity.Property(e => e.BIADocumentId).HasColumnName("IdDocumentoBIA");
-
-                entity.Property(e => e.OperationalImpactId).ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Description).IsRequired();
-
-                entity.Property(e => e.OperationalImpact)
-                    .IsRequired()
-                    .HasMaxLength(450);
-
-                entity.Property(e => e.TimeUnit).HasMaxLength(450);
-
-                entity.HasOne(d => d.FrecuencyTypeInfo)
-                    .WithMany(p => p.BIAOperationalImpacts)
-                    .HasForeignKey(d => d.FrecuencyTypeId)
-                    .HasConstraintName("FK_tblBIAImpactoOperacional_tblTipoFrecuencia");
-
-                entity.HasOne(d => d.ScaleInfo)
-                    .WithMany(p => p.BIAOperationalImpacts)
-                    .HasForeignKey(d => new { d.CompanyId, d.ScaleId })
-                    .HasConstraintName("FK_tblBIAImpactoOperacional_tblEscala");
-
-                entity.HasOne(d => d.ProcessInfo)
-                    .WithMany(p => p.BIAOperationalImpacts)
-                    .HasForeignKey(d => new { d.CompanyId, d.BIADocumentId, d.ProcessId })
-                    .HasConstraintName("FK_tblBIAImpactoOperacional_tblBIAProceso");
-            });
-
-            modelBuilder.Entity<BIAInterdependecy>(entity =>
-            {
-                entity.HasKey(e => new { e.CompanyId, e.BIADocumentId, e.ProcessId, e.InterdependencyId });
-
-                entity.ToTable("tblBIAInterdependencia");
-
-                entity.Property(e => e.BIADocumentId).HasColumnName("IdDocumentoBIA");
-
-                entity.Property(e => e.InterdependencyId).ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Contact).IsRequired();
-
-                entity.Property(e => e.Organization).IsRequired();
-
-                entity.Property(e => e.Service).IsRequired();
-
-                entity.HasOne(d => d.BIAProcessInfo)
-                    .WithMany(p => p.BIAInterdependencies)
-                    .HasForeignKey(d => new { d.CompanyId, d.BIADocumentId, d.ProcessId })
-                    .HasConstraintName("FK_tblBIAInterdependencia_tblBIAProceso");
-            });
-
-            modelBuilder.Entity<BIAMTD>(entity =>
-            {
-                entity.HasKey(e => new { e.CompanyId, e.BIADocumentId, e.ProcessId, e.MTDId });
-
-                entity.ToTable("tblBIAMTD");
-
-                entity.HasIndex(e => e.FrecuencyTypeId)
-                    .HasName("IX_FK_tblBIAMTD_tblTipoFrecuencia");
-
-                entity.HasIndex(e => new { e.CompanyId, e.ScaleId })
-                    .HasName("IX_FK_tblBIAMTD_tblEscala");
-
-                entity.Property(e => e.BIADocumentId).HasColumnName("IdDocumentoBIA");
-
-                entity.Property(e => e.MTDId)
-                    .HasColumnName("IdMTD")
-                    .ValueGeneratedOnAdd();
-
-                entity.HasOne(d => d.FrecuencyTypeInfo)
-                    .WithMany(p => p.BIAMTDs)
-                    .HasForeignKey(d => d.FrecuencyTypeId)
-                    .HasConstraintName("FK_tblBIAMTD_tblTipoFrecuencia");
-
-                entity.HasOne(d => d.ScaleInfo)
-                    .WithMany(p => p.BIAMTDs)
-                    .HasForeignKey(d => new { d.CompanyId, d.ScaleId })
-                    .HasConstraintName("FK_tblBIAMTD_tblEscala");
-
-                entity.HasOne(d => d.BIAProcessInfo)
-                    .WithMany(p => p.BIAMTDs)
-                    .HasForeignKey(d => new { d.CompanyId, d.BIADocumentId, d.ProcessId })
-                    .HasConstraintName("FK_tblBIAMTD_tblBIAProceso");
-            });
-
-            modelBuilder.Entity<BIAKeyPerson>(entity =>
-            {
-                entity.HasKey(e => new { e.CompanyId, e.BIADocumentId, e.ProcessId, e.KeyPersonId });
-
-                entity.ToTable("tblBIAPersonaClave");
-
-                entity.HasIndex(e => new { e.CompanyId, e.DocumentId, e.DocumentTypeId })
-                    .HasName("IX_FK_tblBIAPersonaClave_tblDocumento");
-
-                entity.HasIndex(e => new { e.CompanyId, e.DocumentId, e.DocumentTypeId, e.KeyPersonId })
-                    .HasName("IX_FK_tblBIAPersonaClave_tblDocumentoPersonaClave");
-
-                entity.Property(e => e.BIADocumentId).HasColumnName("IdDocumentoBIA");
-
-                entity.HasOne(d => d.DocumentInfo)
-                    .WithMany(p => p.BIAVIPPersons)
-                    .HasForeignKey(d => new { d.CompanyId, d.DocumentId, d.DocumentTypeId })
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tblBIAPersonaClave_tblDocumento");
-
-                entity.HasOne(d => d.BIAProcessInfo)
-                    .WithMany(p => p.BIAVIPPersons)
-                    .HasForeignKey(d => new { d.CompanyId, d.BIADocumentId, d.ProcessId })
-                    .HasConstraintName("FK_tblBIAPersonaClave_tblBIAProceso");
-
-                entity.HasOne(d => d.DocumentKeyPersonInfo)
-                    .WithMany(p => p.BIAKeyPerson)
-                    .HasForeignKey(d => new { d.CompanyId, d.DocumentId, d.DocumentTypeId, d.KeyPersonId })
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tblBIAPersonaClave_tblDocumentoPersonaClave");
-            });
-
-            modelBuilder.Entity<BIAProcessBackupPerson>(entity =>
-            {
-                entity.HasKey(e => new { e.CompanyId, e.BIADocumentId, e.PersonId, e.ProcessId });
-
-                entity.ToTable("tblBIAPersonaRespaldoProceso");
-
-                entity.HasIndex(e => new { e.CompanyId, e.PersonId })
-                    .HasName("IX_FK_tblBIAPersonaRespaldoProceso_tblPersona");
-
-                entity.HasIndex(e => new { e.CompanyId, e.BIADocumentId, e.ProcessId })
-                    .HasName("IX_FK_tblBIAPersonaRespaldoProceso_tblBIAProceso");
-
-                entity.Property(e => e.BIADocumentId).HasColumnName("IdDocumentoBIA");
-
-                entity.HasOne(d => d.PersonInfo)
-                    .WithMany(p => p.BIABackupProcessPersons)
-                    .HasForeignKey(d => new { d.CompanyId, d.PersonId })
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tblBIAPersonaRespaldoProceso_tblPersona");
-
-                entity.HasOne(d => d.BIAProcessInfo)
-                    .WithMany(p => p.BIAProcessBackupPersons)
-                    .HasForeignKey(d => new { d.CompanyId, d.BIADocumentId, d.ProcessId })
-                    .HasConstraintName("FK_tblBIAPersonaRespaldoProceso_tblBIAProceso");
-            });
-
+            modelBuilder.ApplyConfiguration(new AuditConfiguration());
+            modelBuilder.ApplyConfiguration(new CriticalProcessAuditConfiguration());
+            modelBuilder.ApplyConfiguration(new BCPDocumentConfiguration());
+            modelBuilder.ApplyConfiguration(new BCPResumptionVIPPersonConfiguration());
+            modelBuilder.ApplyConfiguration(new BCPResumptionTaskConfiguration());
+            modelBuilder.ApplyConfiguration(new BCPResumptionTaskActivityConfiguration());
+            modelBuilder.ApplyConfiguration(new BCPRecoveryKeyPersonConfiguration());
+            modelBuilder.ApplyConfiguration(new BCMRecoveryResourceConfiguration());
+            modelBuilder.ApplyConfiguration(new BCPAnswerActionConfiguration());
+            modelBuilder.ApplyConfiguration(new BCPAnswerResourceConfiguration());
+            modelBuilder.ApplyConfiguration(new BCPResumptionKitConfiguration());
+            modelBuilder.ApplyConfiguration(new BCPRestoreInfraestructureConfiguration());
+            modelBuilder.ApplyConfiguration(new BCPRestoreFurnitureConfiguration());
+            modelBuilder.ApplyConfiguration(new BCPRestoreOtherConfiguration());
+            modelBuilder.ApplyConfiguration(new BIAThreatConfiguration());
+            modelBuilder.ApplyConfiguration(new BIAThreatEventConfiguration());
+            modelBuilder.ApplyConfiguration(new BIAAppConfiguration());
+            modelBuilder.ApplyConfiguration(new BIAServiceChainConfiguration());
+            modelBuilder.ApplyConfiguration(new BIAProcessClientConfiguration());
+            modelBuilder.ApplyConfiguration(new BIACommentConfiguration());
+            modelBuilder.ApplyConfiguration(new BIADocumentationConfiguration());
+            modelBuilder.ApplyConfiguration(new BIADocumentConfiguration());
+            modelBuilder.ApplyConfiguration(new BIAInputConfiguration());
+            modelBuilder.ApplyConfiguration(new BIAControlEventConfiguration());
+            modelBuilder.ApplyConfiguration(new BIARiskEventConfiguration());
+            modelBuilder.ApplyConfiguration(new BIABigImpactConfiguration());
+            modelBuilder.ApplyConfiguration(new BIAFiancialImpactConfiguration());
+            modelBuilder.ApplyConfiguration(new BIAOperationaImpactConfiguration());
+            modelBuilder.ApplyConfiguration(new BIAInterdependecyConfiguration());
+            modelBuilder.ApplyConfiguration(new BIAMTDConfiguration());
+            modelBuilder.ApplyConfiguration(new BIAKeyPersonConfiguration());
+            modelBuilder.ApplyConfiguration(new BIAProcessBackupPersonConfiguration());
             modelBuilder.Entity<BIAProcess>(entity =>
             {
                 entity.HasKey(e => new { e.CompanyId, e.BIADocumentId, e.ProcessId });
@@ -1307,7 +414,7 @@ namespace BCMWeb.Infrastructure.Data
                     .HasConstraintName("FK_tblBIARTO_tblBIAProceso");
             });
 
-            modelBuilder.Entity<TblBiaunidadTrabajo>(entity =>
+            modelBuilder.Entity<BIAWorkUnit>(entity =>
             {
                 entity.HasKey(e => new { e.CompanyId, e.WorkUnitId });
 
@@ -4004,39 +3111,7 @@ namespace BCMWeb.Infrastructure.Data
                     .HasConstraintName("FK_tblEmpresa_tblUnidadOrganizativa_FK1");
             });
 
-            modelBuilder.Entity<User>(entity =>
-            {
-                entity.HasKey(e => e.UserId);
-
-                entity.ToTable("tblUsuario");
-
-                entity.HasIndex(e => e.UserStateId)
-                    .HasName("IX_FK_tblUsuario_tblEstadoUsuario");
-
-                entity.Property(e => e.UserPassw)
-                    .IsRequired()
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.UserCode)
-                    .IsRequired()
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Email).HasMaxLength(250);
-
-                entity.Property(e => e.UserStateDateChange).HasColumnType("datetime");
-
-                entity.Property(e => e.LastConnectionDate).HasColumnType("datetime");
-
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasMaxLength(250);
-
-                entity.HasOne(d => d.UserStateInfo)
-                    .WithMany(p => p.Users)
-                    .HasForeignKey(d => d.UserStateId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tblUsuario_tblEstadoUsuario");
-            });
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
 
             modelBuilder.Entity<UserOrganizationUnit>(entity =>
             {

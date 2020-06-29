@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class ImpactType
+    public class ImpactType : BaseEntity
     {
         public ImpactType()
         {

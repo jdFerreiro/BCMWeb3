@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class UserMenuOption
+    public class UserMenuOption : BaseEntity
     {
         public long CompanyId { get; set; }
         public long MenuOptionId { get; set; }

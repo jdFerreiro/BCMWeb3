@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class Month
+    public class Month : BaseEntity
     {
         public Month()
         {

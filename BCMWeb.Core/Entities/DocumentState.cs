@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class DocumentState
+    public class DocumentState : BaseEntity
     {
         public DocumentState()
         {

@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class ProcessStateCulture
+    public class ProcessStateCulture : BaseEntity
     {
         public string Culture { get; set; }
         public long ProcessStateId { get; set; }

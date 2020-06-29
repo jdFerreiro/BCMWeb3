@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class ProcessState
+    public class ProcessState : BaseEntity
     {
         public ProcessState()
         {

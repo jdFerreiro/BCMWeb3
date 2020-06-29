@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class EmailFormat
+    public class EmailFormat : BaseEntity
     {
         public long CompanyId { get; set; }
         public long MenuCodeId { get; set; }

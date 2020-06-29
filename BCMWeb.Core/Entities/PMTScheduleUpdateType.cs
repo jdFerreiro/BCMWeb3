@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class PMTScheduleUpdateType
+    public class PMTScheduleUpdateType : BaseEntity
     {
         public PMTScheduleUpdateType()
         {

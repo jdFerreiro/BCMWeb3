@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class PMTMessageUpdate
+    public class PMTMessageUpdate : BaseEntity
     {
         public long CompanyId { get; set; }
         public long MessageId { get; set; }

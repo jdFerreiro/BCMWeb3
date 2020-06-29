@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class User
+    public partial class User : BaseEntity
     {
         public User()
         {
             Audits = new HashSet<Audit>();
-            CriticalProcessAudit = new HashSet<AuditCriticalProcess>();
+            CriticalProcessAudit = new HashSet<CriticalProcessAudit>();
             MobileDevices = new HashSet<Device>();
             MobileDeviceConnections = new HashSet<DeviceConnection>();
             MobileDeviceSendsByUser = new HashSet<DeviceConsignment>();
@@ -34,7 +34,7 @@ namespace BCMWeb.Core.Entities
 
         public virtual UserState UserStateInfo { get; set; }
         public virtual ICollection<Audit> Audits { get; set; }
-        public virtual ICollection<AuditCriticalProcess> CriticalProcessAudit { get; set; }
+        public virtual ICollection<CriticalProcessAudit> CriticalProcessAudit { get; set; }
         public virtual ICollection<Device> MobileDevices { get; set; }
         public virtual ICollection<DeviceConnection> MobileDeviceConnections { get; set; }
         public virtual ICollection<DeviceConsignment> MobileDeviceSendsByUser { get; set; }

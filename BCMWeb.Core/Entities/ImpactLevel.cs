@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class ImpactLevel
+    public class ImpactLevel : BaseEntity
     {
         public ImpactLevel()
         {

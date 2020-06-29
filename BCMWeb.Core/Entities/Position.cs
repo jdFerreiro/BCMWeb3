@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class Position
+    public class Position : BaseEntity
     {
         public Position()
         {

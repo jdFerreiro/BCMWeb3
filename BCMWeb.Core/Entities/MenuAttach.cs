@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class MenuAttach
+    public class MenuAttach : BaseEntity
     {
         public long CompanyId { get; set; }
         public long MenuOptionId { get; set; }

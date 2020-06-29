@@ -2,13 +2,13 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class OrganizationUnit
+    public class OrganizationUnit : BaseEntity
     {
         public OrganizationUnit()
         {
             BIADocuments = new HashSet<BIADocument>();
             BIAProcesses = new HashSet<BIAProcess>();
-            BIAWorkUnits = new HashSet<TblBiaunidadTrabajo>();
+            BIAWorkUnits = new HashSet<BIAWorkUnit>();
             Persons = new HashSet<Person>();
             UserOUs = new HashSet<UserOrganizationUnit>();
         }
@@ -21,7 +21,7 @@ namespace BCMWeb.Core.Entities
         public virtual Company CompanyInfo { get; set; }
         public virtual ICollection<BIADocument> BIADocuments { get; set; }
         public virtual ICollection<BIAProcess> BIAProcesses { get; set; }
-        public virtual ICollection<TblBiaunidadTrabajo> BIAWorkUnits { get; set; }
+        public virtual ICollection<BIAWorkUnit> BIAWorkUnits { get; set; }
         public virtual ICollection<Person> Persons { get; set; }
         public virtual ICollection<UserOrganizationUnit> UserOUs { get; set; }
     }

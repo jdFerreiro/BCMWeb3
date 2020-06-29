@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class PPETestStatus
+    public class PPETestStatus : BaseEntity
     {
         public PPETestStatus()
         {

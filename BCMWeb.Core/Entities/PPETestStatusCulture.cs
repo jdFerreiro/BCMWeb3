@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class PPETestStatusCulture
+    public class PPETestStatusCulture : BaseEntity
     {
         public string Cultura { get; set; }
         public short StatusId { get; set; }

@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class BIAThreatEvent
+    public class BIAThreatEvent : BaseEntity
     {
         public BIAThreatEvent()
         {

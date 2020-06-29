@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class TestResultTypeCulture
+    public class TestResultTypeCulture : BaseEntity
     {
         public string Culture { get; set; }
         public int TestResultTypeId { get; set; }

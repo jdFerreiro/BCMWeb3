@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class DocumentStateCulture
+    public class DocumentStateCulture : BaseEntity
     {
         public string Culture { get; set; }
         public long DocumentStateId { get; set; }

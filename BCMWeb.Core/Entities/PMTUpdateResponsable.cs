@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class PMTUpdateResponsable
+    public class PMTUpdateResponsable : BaseEntity
     {
         public PMTUpdateResponsable()
         {

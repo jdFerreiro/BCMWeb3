@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class LocationTypeInformationCulture
+    public class LocationTypeInformationCulture : BaseEntity
     {
         public string Culture { get; set; }
         public int LocationTypeInformationId { get; set; }

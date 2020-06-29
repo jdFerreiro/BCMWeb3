@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class PPETestScheduleParticipant
+    public class PPETestScheduleParticipant : BaseEntity
     {
         public PPETestScheduleParticipant()
         {

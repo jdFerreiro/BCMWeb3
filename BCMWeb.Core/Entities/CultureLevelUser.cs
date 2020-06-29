@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class CultureLevelUser
+    public class CultureLevelUser : BaseEntity
     {
         public string Culture { get; set; }
         public long LevelUserId { get; set; }

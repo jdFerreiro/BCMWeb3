@@ -1,8 +1,9 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class VicePresidency
+    public class VicePresidency : BaseEntity
     {
         public long CompanyId { get; set; }
+
         public long VicepresidencyId { get; set; }
         public string Name { get; set; }
         public string AvenueStreetName { get; set; }

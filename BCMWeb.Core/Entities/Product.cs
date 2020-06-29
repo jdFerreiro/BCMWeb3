@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class Product
+    public class Product : BaseEntity
     {
         public long CompanyId { get; set; }
         public long ProductId { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class BCPRestoreOther
+    public class BCPRestoreOther : BaseEntity
     {
         public long CompanyId { get; set; }
         public long BCPDocumentId { get; set; }

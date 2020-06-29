@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class BIAServiceChain
+    public class BIAServiceChain : BaseEntity
     {
         public long CompanyId { get; set; }
         public long ServiceChainId { get; set; }

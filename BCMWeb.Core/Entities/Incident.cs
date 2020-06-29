@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class Incident
+    public class Incident : BaseEntity
     {
         public long CompanyId { get; set; }
         public long IncidentId { get; set; }

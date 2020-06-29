@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class AddressTypeCulture
+    public class AddressTypeCulture : BaseEntity
     {
         public string Culture { get; set; }
         public long AddressTypeId { get; set; }

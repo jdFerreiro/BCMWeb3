@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class PPETestExecutionResult
+    public class PPETestExecutionResult : BaseEntity
     {
         public long CompanyId { get; set; }
         public long ScheduleId { get; set; }

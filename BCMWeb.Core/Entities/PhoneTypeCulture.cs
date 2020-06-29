@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class PhoneTypeCulture
+    public class PhoneTypeCulture : BaseEntity
     {
         public string Culture { get; set; }
         public long PhoneTypeId { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class PersonEmail
+    public class PersonEmail : BaseEntity
     {
         public long CompanyId { get; set; }
         public long PersonId { get; set; }

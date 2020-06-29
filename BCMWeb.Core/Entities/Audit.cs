@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class Audit
+    public class Audit : BaseEntity
     {
         public long AuditId { get; set; }
         public long? CompanyId { get; set; }

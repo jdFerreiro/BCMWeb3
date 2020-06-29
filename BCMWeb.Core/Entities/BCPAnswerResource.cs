@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class BCPAnswerResource
+    public class BCPAnswerResource : BaseEntity
     {
         public long CompanyId { get; set; }
         public long BCPDocumentId { get; set; }

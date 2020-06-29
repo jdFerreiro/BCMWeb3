@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class LocationTypeInformation
+    public class LocationTypeInformation : BaseEntity
     {
         public LocationTypeInformation()
         {

@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class InterdependencyType
+    public class InterdependencyType : BaseEntity
     {
         public InterdependencyType()
         {

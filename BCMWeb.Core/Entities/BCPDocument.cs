@@ -2,17 +2,17 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class BCPDocument
+    public class BCPDocument : BaseEntity
     {
         public BCPDocument()
         {
-            BCPRestartVIPPersons = new HashSet<BCPRestartVIPPerson>();
-            BCPRestartTasks = new HashSet<BCPRestoreTask>();
-            BCPRestartKeyPersons = new HashSet<BCPRestoreKeyPerson>();
-            BCPRestartResources = new HashSet<BCMRecoverResource>();
-            BCPAnswerActions = new HashSet<BCPRestoreAction>();
+            BCPRestartVIPPersons = new HashSet<BCPResumptionVIPPerson>();
+            BCPRestartTasks = new HashSet<BCPResumptionTask>();
+            BCPRestartKeyPersons = new HashSet<BCPRecoveryKeyPerson>();
+            BCPRestartResources = new HashSet<BCMRecoveryResource>();
+            BCPAnswerActions = new HashSet<BCPAnswerAction>();
             BCPAnswerResources = new HashSet<BCPAnswerResource>();
-            BCPRestoreKits = new HashSet<BCPRestoreKit>();
+            BCPRestoreKits = new HashSet<BCPResumptionKit>();
             BCPRestoreInfrastructures = new HashSet<BCPRestoreInfraestructure>();
             BCPRestoreFurnitures = new HashSet<BCPRestoreFurniture>();
             BCPRestoreOthers = new HashSet<BCPRestoreOther>();
@@ -32,13 +32,13 @@ namespace BCMWeb.Core.Entities
         public virtual Document DocumentInfo { get; set; }
         public virtual Company CompanyInfo { get; set; }
         public virtual BIAProcess BIAProcessInfo { get; set; }
-        public virtual ICollection<BCPRestartVIPPerson> BCPRestartVIPPersons { get; set; }
-        public virtual ICollection<BCPRestoreTask> BCPRestartTasks { get; set; }
-        public virtual ICollection<BCPRestoreKeyPerson> BCPRestartKeyPersons { get; set; }
-        public virtual ICollection<BCMRecoverResource> BCPRestartResources { get; set; }
-        public virtual ICollection<BCPRestoreAction> BCPAnswerActions { get; set; }
+        public virtual ICollection<BCPResumptionVIPPerson> BCPRestartVIPPersons { get; set; }
+        public virtual ICollection<BCPResumptionTask> BCPRestartTasks { get; set; }
+        public virtual ICollection<BCPRecoveryKeyPerson> BCPRestartKeyPersons { get; set; }
+        public virtual ICollection<BCMRecoveryResource> BCPRestartResources { get; set; }
+        public virtual ICollection<BCPAnswerAction> BCPAnswerActions { get; set; }
         public virtual ICollection<BCPAnswerResource> BCPAnswerResources { get; set; }
-        public virtual ICollection<BCPRestoreKit> BCPRestoreKits { get; set; }
+        public virtual ICollection<BCPResumptionKit> BCPRestoreKits { get; set; }
         public virtual ICollection<BCPRestoreInfraestructure> BCPRestoreInfrastructures { get; set; }
         public virtual ICollection<BCPRestoreFurniture> BCPRestoreFurnitures { get; set; }
         public virtual ICollection<BCPRestoreOther> BCPRestoreOthers { get; set; }

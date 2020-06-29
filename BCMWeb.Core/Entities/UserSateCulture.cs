@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class UserSateCulture
+    public class UserSateCulture : BaseEntity
     {
         public string Culture { get; set; }
         public short UserStateId { get; set; }

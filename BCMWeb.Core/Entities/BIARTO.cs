@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class BIARTO
+    public class BIARTO : BaseEntity
     {
         public long CompanyId { get; set; }
         public long BIADocument { get; set; }

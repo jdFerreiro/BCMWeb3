@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class BIAWorkUnitProcess
+    public class BIAWorkUnitProcess : BaseEntity
     {
         public BIAWorkUnitProcess()
         {
@@ -16,7 +16,7 @@ namespace BCMWeb.Core.Entities
         public long BIADocumentId { get; set; }
         public long ProcessId { get; set; }
 
-        public virtual TblBiaunidadTrabajo BIAWorkUnitInfo { get; set; }
+        public virtual BIAWorkUnit BIAWorkUnitInfo { get; set; }
         public virtual BIAProcess BIAProcessInfo { get; set; }
         public virtual ICollection<BIAWorkUnitPerson> BIAWorkUnitPersons { get; set; }
     }

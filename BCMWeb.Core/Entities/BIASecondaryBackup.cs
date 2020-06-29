@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class BIASecondaryBackup
+    public class BIASecondaryBackup : BaseEntity
     {
         public long CompanyId { get; set; }
         public long BIAocumentId { get; set; }

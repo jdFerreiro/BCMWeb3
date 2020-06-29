@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class BIADocument
+    public class BIADocument : BaseEntity
     {
         public BIADocument()
         {

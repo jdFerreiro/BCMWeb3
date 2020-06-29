@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class PPEFrecuency
+    public class PPEFrecuency : BaseEntity
     {
         public long CompanyId { get; set; }
         public long DocumentId { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class BIARiskEvent
+    public class BIARiskEvent : BaseEntity
     {
         public long RiskEventId { get; set; }
         public long CompanyId { get; set; }

@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class ScaleType
+    public class ScaleType : BaseEntity
     {
         public ScaleType()
         {

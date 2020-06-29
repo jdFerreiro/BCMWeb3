@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class DocumentContent
+    public class DocumentContent : BaseEntity
     {
         public long CompanyId { get; set; }
         public long DocumentId { get; set; }

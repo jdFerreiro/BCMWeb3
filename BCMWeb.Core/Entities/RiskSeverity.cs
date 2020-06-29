@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class RiskSeverity
+    public class RiskSeverity : BaseEntity
     {
         public RiskSeverity()
         {

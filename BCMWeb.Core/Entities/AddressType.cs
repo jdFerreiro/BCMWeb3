@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class AddressType
+    public class AddressType : BaseEntity
     {
         public AddressType()
         {

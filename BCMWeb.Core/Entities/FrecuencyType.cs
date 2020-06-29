@@ -2,7 +2,7 @@
 
 namespace BCMWeb.Core.Entities
 {
-    public partial class FrecuencyType
+    public class FrecuencyType : BaseEntity
     {
         public FrecuencyType()
         {

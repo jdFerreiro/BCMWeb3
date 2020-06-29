@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class BIAProcessBackupPerson
+    public class BIAProcessBackupPerson : BaseEntity
     {
         public long CompanyId { get; set; }
         public long BIADocumentId { get; set; }

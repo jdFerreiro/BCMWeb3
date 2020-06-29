@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class BIAWorkUnitPerson
+    public class BIAWorkUnitPerson : BaseEntity
     {
         public long CompanyId { get; set; }
         public long WorkUnitId { get; set; }

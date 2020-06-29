@@ -1,6 +1,6 @@
 ﻿namespace BCMWeb.Core.Entities
 {
-    public partial class InterdependencyTypeCulture
+    public class InterdependencyTypeCulture : BaseEntity
     {
         public string Culture { get; set; }
         public int InterdependencyTypeId { get; set; }
