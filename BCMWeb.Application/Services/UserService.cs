@@ -1,8 +1,10 @@
 ﻿using BCMWeb.Application.Exceptions;
 using BCMWeb.Application.Interfaces;
+using BCMWeb.Core.CustomEntities;
 using BCMWeb.Core.Entities;
+using BCMWeb.Core.QueryFilters;
+using Microsoft.Extensions.Options;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,14 +13,17 @@ namespace BCMWeb.Application.Services
     public class UserService : IUserService
     {
         private readonly IUnitOfWork _unitOfWork;
-        public UserService(IUnitOfWork unitOfWork)
+        private readonly PaginationOptions _paginationOptions;
+
+        public UserService(IUnitOfWork unitOfWork, IOptions<PaginationOptions> paginationOptions)
         {
             _unitOfWork = unitOfWork;
+            _paginationOptions = paginationOptions.Value;
         }
 
         public async Task<long> Add(User entity)
         {
-            var _users = GetAll();
+            var _users = _unitOfWork.UserRepository.GetAll();
             var _user = _users.FirstOrDefault(x => x.Email == entity.Email);
 
             if (_user != null)
@@ -36,7 +41,7 @@ namespace BCMWeb.Application.Services
             return entity.UserId;
         }
 
-        public Task Delete(long id)
+        public Task<bool> Delete(long id)
         {
             throw new System.NotImplementedException();
         }
@@ -46,9 +51,17 @@ namespace BCMWeb.Application.Services
             return await _unitOfWork.UserRepository.Get(keyValues);
         }
 
-        public IEnumerable<User> GetAll()
+        public PagedList<User> GetAll(PaginationFilter filters)
         {
-            return _unitOfWork.UserRepository.GetAll();
+
+            filters.PageNumber = filters.PageNumber == 0 ? _paginationOptions.DefaultPageNumber : filters.PageNumber;
+            filters.PageSize = filters.PageSize == 0 ? _paginationOptions.DefaultPageSize : filters.PageSize;
+
+            var _data = _unitOfWork.UserRepository.GetAll();
+
+            var _dataPaged = PagedList<User>.Create(_data, filters.PageNumber, filters.PageSize);
+
+            return _dataPaged;
         }
 
         public async Task<bool> Update(User entity)

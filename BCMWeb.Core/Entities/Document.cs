@@ -30,10 +30,10 @@ namespace BCMWeb.Core.Entities
         public DateTime? LastUpdateDate { get; set; }
         public long DocumentStateId { get; set; }
         public DateTime DocumentStateDate { get; set; }
-        public bool IsBussiness { get; set; }
+        public bool IsBusiness { get; set; }
         public int VersionNumber { get; set; }
         public int? OriginalVersion { get; set; }
-        public long ResponsabilePersonId { get; set; }
+        public long ResponsablePersonId { get; set; }
         public bool CertificationRequired { get; set; }
 
         public virtual Company CompanyInfo { get; set; }

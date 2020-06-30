@@ -15,7 +15,7 @@ namespace BCMWeb.Infrastructure.Repositories
         public BaseRepository(BcmWebToolsContext context)
         {
             _context = context;
-            _entities = context.Set<T>();
+            _entities = _context.Set<T>();
         }
 
         public async Task Add(T entity)

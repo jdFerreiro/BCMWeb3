@@ -8,6 +8,7 @@ namespace BCMWeb.Application.Services
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
 
+            services.AddTransient<ICompanyService, CompanyService>();
             services.AddTransient<IUserService, UserService>();
 
             return services;

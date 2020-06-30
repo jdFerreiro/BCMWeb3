@@ -212,6 +212,7 @@ namespace BCMWeb.Infrastructure.Data
             modelBuilder.ApplyConfiguration(new BIAMTDConfiguration());
             modelBuilder.ApplyConfiguration(new BIAKeyPersonConfiguration());
             modelBuilder.ApplyConfiguration(new BIAProcessBackupPersonConfiguration());
+
             modelBuilder.Entity<BIAProcess>(entity =>
             {
                 entity.HasKey(e => new { e.CompanyId, e.BIADocumentId, e.ProcessId });
@@ -1315,35 +1316,7 @@ namespace BCMWeb.Infrastructure.Data
                     .HasConstraintName("FK_tblDispositivoEnvio_tblEmpresaModulo");
             });
 
-            modelBuilder.Entity<Document>(entity =>
-            {
-                entity.HasKey(e => new { e.CompanyId, e.DocumentId, e.DocumentTypeId });
-
-                entity.ToTable("tblDocumento");
-
-                entity.HasIndex(e => e.DocumentStateId)
-                    .HasName("IX_FK_tblDocumento_tblEstadoDocumento");
-
-                entity.Property(e => e.DocumentId).ValueGeneratedOnAdd();
-
-                entity.Property(e => e.CreationDate).HasColumnType("datetime");
-
-                entity.Property(e => e.DocumentStateDate).HasColumnType("datetime");
-
-                entity.Property(e => e.LastUpdateDate).HasColumnType("datetime");
-
-                entity.HasOne(d => d.CompanyInfo)
-                    .WithMany(p => p.Docs)
-                    .HasForeignKey(d => d.CompanyId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tblDocumento_tblEmpresa");
-
-                entity.HasOne(d => d.DocumentStateInfo)
-                    .WithMany(p => p.Documents)
-                    .HasForeignKey(d => d.DocumentStateId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tblDocumento_tblEstadoDocumento");
-            });
+            modelBuilder.ApplyConfiguration(new DocumentConfiguration());
 
             modelBuilder.Entity<DocumentAttachment>(entity =>
             {
@@ -1528,68 +1501,7 @@ namespace BCMWeb.Infrastructure.Data
                     .HasConstraintName("FK_tblDocumentoPersonaClave_tblDocumento");
             });
 
-            modelBuilder.Entity<Company>(entity =>
-            {
-                entity.HasKey(e => e.CompanyId);
-
-                entity.ToTable("tblEmpresa");
-
-                entity.HasIndex(e => e.CompanyStateId)
-                    .HasName("IX_FK_tblEmpresa_tblEstadoEmpresa");
-
-                entity.HasIndex(e => e.CountryId)
-                    .HasName("IX_FK_tblEmpresa_tblPais");
-
-                entity.HasIndex(e => new { e.CountryId, e.StateId })
-                    .HasName("IX_FK_tblEmpresa_tblEstado");
-
-                entity.HasIndex(e => new { e.CountryId, e.StateId, e.CityId })
-                    .HasName("IX_FK_tblEmpresa_tblCiudad");
-
-                entity.Property(e => e.AdministrativeAddress).IsRequired();
-
-                entity.Property(e => e.StartDate).HasColumnType("datetime");
-
-                entity.Property(e => e.CompanyStateLastUpdate).HasColumnType("datetime");
-
-                entity.Property(e => e.LogoUrl)
-                    .IsRequired()
-                    .HasColumnName("LogoURL")
-                    .HasMaxLength(250);
-
-                entity.Property(e => e.Tradename)
-                    .IsRequired()
-                    .HasMaxLength(250);
-
-                entity.Property(e => e.LegalName)
-                    .IsRequired()
-                    .HasMaxLength(250);
-
-                entity.Property(e => e.GovermentId)
-                    .IsRequired()
-                    .HasMaxLength(50);
-
-                entity.HasOne(d => d.CompanyStateInfo)
-                    .WithMany(p => p.Companies)
-                    .HasForeignKey(d => d.CompanyStateId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_tblEmpresa_tblEstadoEmpresa");
-
-                entity.HasOne(d => d.CountryInfo)
-                    .WithMany(p => p.Companies)
-                    .HasForeignKey(d => d.CountryId)
-                    .HasConstraintName("FK_tblEmpresa_tblPais");
-
-                entity.HasOne(d => d.StateInfo)
-                    .WithMany(p => p.Companies)
-                    .HasForeignKey(d => new { d.CountryId, d.StateId })
-                    .HasConstraintName("FK_tblEmpresa_tblEstado");
-
-                entity.HasOne(d => d.CityInfo)
-                    .WithMany(p => p.Companies)
-                    .HasForeignKey(d => new { d.CountryId, d.StateId, d.CityId })
-                    .HasConstraintName("FK_tblEmpresa_tblCiudad");
-            });
+            modelBuilder.ApplyConfiguration(new CompanyConfiguration());
 
             modelBuilder.Entity<CompanyMenuOption>(entity =>
             {

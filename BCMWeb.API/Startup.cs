@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BCMWeb.Application.Services;
+using BCMWeb.Core.CustomEntities;
 using BCMWeb.Infrastructure.Data;
 using BCMWeb.Infrastructure.Filters;
 using BCMWeb.Infrastructure.Services;
@@ -10,8 +11,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using System;
 using System.Globalization;
+using System.IO;
+using System.Reflection;
 
 namespace BCMWeb.API
 {
@@ -43,15 +47,27 @@ namespace BCMWeb.API
             }).AddNewtonsoftJson(options =>
             {
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
             })
                 .ConfigureApiBehaviorOptions(options =>
                 {
                     // options.SuppressModelStateInvalidFilter = true;
                 });
 
+            services.Configure<PaginationOptions>(Configuration.GetSection("Pagination"));
+
             services.AddDbContext<BcmWebToolsContext>(opt =>
                 opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
             );
+
+            services.AddSwaggerGen(doc =>
+            {
+                doc.SwaggerDoc("v1", new OpenApiInfo { Title = "BCMWeb API", Version = "v1 " });
+
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPah = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                doc.IncludeXmlComments(xmlPah);
+            });
 
             services.AddMvc(options =>
             {
@@ -79,6 +95,13 @@ namespace BCMWeb.API
             }
 
             app.UseHttpsRedirection();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "BCMWeb API V1");
+                options.RoutePrefix = string.Empty;
+            });
 
             app.UseRouting();
 

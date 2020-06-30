@@ -10,6 +10,8 @@ namespace BCMWeb.Infrastructure.Mapping
         {
             CreateMap<User, UserDto>();
             CreateMap<UserDto, User>();
+            CreateMap<Company, CompanyDto>();
+            CreateMap<CompanyDto, Company>();
         }
     }
 }
