@@ -6,6 +6,7 @@ using BCMWeb.Core.DTOs;
 using BCMWeb.Core.Entities;
 using BCMWeb.Core.QueryFilters;
 using BCMWeb.Infrastructure.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Net;
@@ -13,6 +14,7 @@ using System.Threading.Tasks;
 
 namespace BCMWeb.API.Controllers
 {
+    [Authorize]
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
