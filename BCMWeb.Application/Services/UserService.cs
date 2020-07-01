@@ -64,6 +64,11 @@ namespace BCMWeb.Application.Services
             return _dataPaged;
         }
 
+        public User Login(UserLogin userLogin)
+        {
+            return _unitOfWork.UserRepository.Login(userLogin);
+        }
+
         public async Task<bool> Update(User entity)
         {
             _unitOfWork.UserRepository.Update(entity);

@@ -8,19 +8,19 @@ namespace BCMWeb.Infrastructure.Repositories
     public class UnitOfWork : IUnitOfWork
     {
         private readonly BcmWebToolsContext _context;
-        private readonly IGenericRepository<User> _userRepository;
+        private readonly IUserRepository _userRepository;
         private readonly IGenericRepository<Company> _companyRepository;
         private readonly IGenericRepository<Document> _documentRepository;
 
         public UnitOfWork(BcmWebToolsContext context)
         {
             _context = context;
-            _userRepository = _userRepository ?? new BaseRepository<User>(_context);
+            _userRepository = _userRepository ?? new UserRepository(_context);
             _companyRepository = _companyRepository ?? new BaseRepository<Company>(_context);
             _documentRepository = _documentRepository ?? new BaseRepository<Document>(_context);
         }
 
-        public IGenericRepository<User> UserRepository => _userRepository ?? new BaseRepository<User>(_context);
+        public IUserRepository UserRepository => _userRepository ?? new UserRepository(_context);
         public IGenericRepository<Company> CompanyRepository => _companyRepository ?? new BaseRepository<Company>(_context);
         public IGenericRepository<Document> DocumentRepository => _documentRepository ?? new BaseRepository<Document>(_context);
 

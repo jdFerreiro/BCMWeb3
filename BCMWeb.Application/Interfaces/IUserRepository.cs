@@ -1,11 +1,12 @@
-﻿using BCMWeb.Core.Entities;
+﻿using BCMWeb.Core.CustomEntities;
+using BCMWeb.Core.Entities;
 using System.Threading.Tasks;
 
 namespace BCMWeb.Application.Interfaces
 {
     public interface IUserRepository : IGenericRepository<User>
     {
-        Task<long> Login(string codigo, string password);
+        User Login(UserLogin login);
         Task<long> LogOut(long id);
         Task<long> Lock(long id);
 

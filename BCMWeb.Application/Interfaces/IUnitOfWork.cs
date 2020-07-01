@@ -6,7 +6,7 @@ namespace BCMWeb.Application.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {
-        IGenericRepository<User> UserRepository { get; }
+        IUserRepository UserRepository { get; }
         IGenericRepository<Company> CompanyRepository { get; }
         IGenericRepository<Document> DocumentRepository { get; }
 
