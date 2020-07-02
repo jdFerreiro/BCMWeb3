@@ -22,5 +22,7 @@ namespace BCMWeb.Core.Entities
         public virtual ICollection<Company> Companies { get; set; }
         public virtual ICollection<Location> Locations { get; set; }
         public virtual ICollection<PersonAddress> PersonAddresses { get; set; }
+        public virtual ICollection<VicePresidency> VicePresidencies { get; set; }
+
     }
 }

@@ -64,9 +64,9 @@ namespace BCMWeb.Application.Services
             return _dataPaged;
         }
 
-        public User Login(UserLogin userLogin)
+        public async Task<User> Login(UserLogin userLogin)
         {
-            return _unitOfWork.UserRepository.Login(userLogin);
+            return await _unitOfWork.UserRepository.Login(userLogin);
         }
 
         public async Task<bool> Update(User entity)
@@ -75,5 +75,7 @@ namespace BCMWeb.Application.Services
             await _unitOfWork.SaveChangesAsync();
             return true;
         }
+
+
     }
 }

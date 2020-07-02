@@ -10,9 +10,9 @@ namespace BCMWeb.Core.Entities
             CountryCultures = new HashSet<CountryCulture>();
             Companies = new HashSet<Company>();
             CountryStates = new HashSet<CountryState>();
-            TblLocalidad = new HashSet<Location>();
-            TblPersonaDireccion = new HashSet<PersonAddress>();
-            TblVicepresidencia = new HashSet<VicePresidency>();
+            Locations = new HashSet<Location>();
+            PersonAddresses = new HashSet<PersonAddress>();
+            VicePresidencies = new HashSet<VicePresidency>();
         }
 
         public long CountryId { get; set; }
@@ -21,8 +21,8 @@ namespace BCMWeb.Core.Entities
         public virtual ICollection<CountryCulture> CountryCultures { get; set; }
         public virtual ICollection<Company> Companies { get; set; }
         public virtual ICollection<CountryState> CountryStates { get; set; }
-        public virtual ICollection<Location> TblLocalidad { get; set; }
-        public virtual ICollection<PersonAddress> TblPersonaDireccion { get; set; }
-        public virtual ICollection<VicePresidency> TblVicepresidencia { get; set; }
+        public virtual ICollection<Location> Locations { get; set; }
+        public virtual ICollection<PersonAddress> PersonAddresses { get; set; }
+        public virtual ICollection<VicePresidency> VicePresidencies { get; set; }
     }
 }

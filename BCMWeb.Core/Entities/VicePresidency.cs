@@ -17,5 +17,7 @@
 
         public virtual Company CompanyInfo { get; set; }
         public virtual Country CountryInfo { get; set; }
+        public virtual CountryState CountryStateInfo { get; set; }
+        public virtual City CityInfo { get; set; }
     }
 }

@@ -2,7 +2,6 @@
 using BCMWeb.Core.CustomEntities;
 using BCMWeb.Core.Entities;
 using BCMWeb.Infrastructure.Data;
-using BCMWeb.Infrastructure.Utilities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -15,7 +14,7 @@ namespace BCMWeb.Infrastructure.Repositories
     {
         private readonly BcmWebToolsContext _context;
         protected readonly DbSet<User> _entities;
-        private readonly Encriptador encriptador = new Encriptador();
+
         public UserRepository(BcmWebToolsContext context)
         {
             _context = context;
@@ -58,11 +57,13 @@ namespace BCMWeb.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        public User Login(UserLogin login)
+        public async Task<User> Login(UserLogin login)
         {
-            string _encriptKey = encriptador.Encriptar(login.UserPassword, Encriptador.Keysize.KS256);
-            User _user = _entities.FirstOrDefault(x => x.UserCode == login.UserCode && x.UserPassw == _encriptKey);
-            return _user;
+            //string _encriptKey = encriptador.Encriptar(login.UserPassword, Encriptador.Keysize.KS256);
+            //User _user = _entities.FirstOrDefault(x => x.UserCode == login.UserCode && x.UserPassw == _encriptKey);
+            //return _user;
+
+            return await _entities.FirstOrDefaultAsync(x => x.UserCode == login.UserCode && x.UserPassw == login.UserPassword);
         }
     }
 }

@@ -76,8 +76,6 @@ namespace BCMWeb.Infrastructure.Data.Configurations
             builder.Property(e => e.CityId)
                 .HasColumnName("IdPaisEstadoCiudad");
 
-
-
             builder.HasOne(d => d.CompanyStateInfo)
                 .WithMany(p => p.Companies)
                 .HasForeignKey(d => d.CompanyStateId)

@@ -8,10 +8,8 @@ namespace BCMWeb.Infrastructure.Mapping
     {
         public AutomapperProfile()
         {
-            CreateMap<User, UserDto>();
-            CreateMap<UserDto, User>();
-            CreateMap<Company, CompanyDto>();
-            CreateMap<CompanyDto, Company>();
+            CreateMap<User, UserDto>().ReverseMap();
+            CreateMap<Company, CompanyDto>().ReverseMap();
         }
     }
 }

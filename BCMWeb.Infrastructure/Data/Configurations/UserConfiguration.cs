@@ -28,7 +28,8 @@ namespace BCMWeb.Infrastructure.Data.Configurations
                 .IsRequired()
                 .HasMaxLength(50);
 
-            builder.Property(e => e.Email).HasMaxLength(250);
+            builder.Property(e => e.Email)
+                .HasMaxLength(250);
 
             builder.Property(e => e.UserStateDateChange)
                 .HasColumnName("FechaEstado")
