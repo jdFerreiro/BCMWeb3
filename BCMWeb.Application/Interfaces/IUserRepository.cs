@@ -7,8 +7,9 @@ namespace BCMWeb.Application.Interfaces
     public interface IUserRepository : IGenericRepository<User>
     {
         Task<User> Login(UserLogin login);
-        Task<long> LogOut(long id);
-        Task<long> Lock(long id);
+        Task<bool> LogOut(long id);
+        Task<bool> Lock(long id);
+        Task<bool> Delete(long id);
 
     }
 }

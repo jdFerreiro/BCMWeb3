@@ -64,9 +64,19 @@ namespace BCMWeb.Application.Services
             return _dataPaged;
         }
 
+        public async Task<bool> Lock(long id)
+        {
+            return await _unitOfWork.UserRepository.Lock(id);
+        }
+
         public async Task<User> Login(UserLogin userLogin)
         {
             return await _unitOfWork.UserRepository.Login(userLogin);
+        }
+
+        public async Task<bool> LogOut(long id)
+        {
+            return await _unitOfWork.UserRepository.LogOut(id);
         }
 
         public async Task<bool> Update(User entity)

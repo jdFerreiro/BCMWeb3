@@ -13,5 +13,8 @@ namespace BCMWeb.Application.Interfaces
         Task<bool> Delete(long id);
         Task<bool> Update(User entity);
         Task<User> Login(UserLogin userLogin);
+        Task<bool> LogOut(long id);
+        Task<bool> Lock(long id);
+
     }
 }

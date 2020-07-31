@@ -1,4 +1,5 @@
-﻿using BCMWeb.Application.Interfaces;
+﻿using BCMWeb.Application.Enums;
+using BCMWeb.Application.Interfaces;
 using BCMWeb.Core.CustomEntities;
 using BCMWeb.Core.Entities;
 using BCMWeb.Infrastructure.Data;
@@ -47,14 +48,42 @@ namespace BCMWeb.Infrastructure.Repositories
             _entities.Update(entity);
         }
 
-        public Task<long> LogOut(long id)
+        public async Task<bool> LogOut(long id)
         {
-            throw new NotImplementedException();
+            bool _done = false;
+            try
+            {
+                User _user = await _entities.FirstOrDefaultAsync(x => x.UserId == id);
+                _user.UserStateId = (short)UserStateEnum.Inactivo;
+                _user.UserStateDateChange = DateTime.UtcNow;
+                _entities.Update(_user);
+                _done = true;
+            }
+            catch (Exception ex)
+            {
+                var errorMessage = ex.Message;
+                _done = false;
+            }
+            return _done;
         }
 
-        public Task<long> Lock(long id)
+        public async Task<bool> Lock(long id)
         {
-            throw new NotImplementedException();
+            bool _done = false;
+            try
+            {
+                User _user = await _entities.FirstOrDefaultAsync(x => x.UserId == id);
+                _user.UserStateId = (short)UserStateEnum.Bloqueado;
+                _user.UserStateDateChange = DateTime.UtcNow;
+                _entities.Update(_user);
+                _done = true;
+            }
+            catch (Exception ex)
+            {
+                var errorMessage = ex.Message;
+                _done = false;
+            }
+            return _done;
         }
 
         public async Task<User> Login(UserLogin login)
@@ -64,6 +93,25 @@ namespace BCMWeb.Infrastructure.Repositories
             //return _user;
 
             return await _entities.FirstOrDefaultAsync(x => x.UserCode == login.UserCode && x.UserPassw == login.UserPassword);
+        }
+
+        public async Task<bool> Delete(long id)
+        {
+            bool _done = false;
+            try
+            {
+                User _user = await _entities.FirstOrDefaultAsync(x => x.UserId == id);
+                _user.UserStateId = (short)UserStateEnum.Eliminado;
+                _user.UserStateDateChange = DateTime.UtcNow;
+                _entities.Update(_user);
+                _done = true;
+            }
+            catch (Exception ex)
+            {
+                var errorMessage = ex.Message;
+                _done = false;
+            }
+            return _done;
         }
     }
 }
